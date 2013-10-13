@@ -89,6 +89,7 @@
     <Compile Include="ProfileWindow.xaml.cs">
       <DependentUpon>ProfileWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TestRequest.cs" />
     <Compile Include="Watchlist.xaml.cs">
       <DependentUpon>Watchlist.xaml</DependentUpon>
     </Compile>

@@ -48,6 +48,13 @@ namespace Watchlist_app_windows
             Environment.Exit(0);
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            GetMovie test = new GetMovie();
+            test.GetInfo();
+            textbox1.Text = test.ReturnData();
+        }
+
       
     }
 }
