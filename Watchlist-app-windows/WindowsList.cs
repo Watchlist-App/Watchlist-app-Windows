@@ -10,10 +10,12 @@ namespace Watchlist_app_windows
     {
         private static WindowsList pagelist = null;
         private Window1 pag1;
+        private ProfileWindow pag2;
         private WindowsList()
         {
 
             pag1 = new Window1();
+            pag2 = new ProfileWindow();
         }
         public static WindowsList GetInstance()
         {
@@ -24,6 +26,11 @@ namespace Watchlist_app_windows
         public Window1 page1
         {
             get { return pag1; }
+        }
+
+        public ProfileWindow page2
+        {
+            get { return pag2; }
         }
     }
 }
