@@ -4,9 +4,13 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
+      ShowsNavigationUI = "False"
       d:DesignHeight="768" d:DesignWidth="1024"
 	Title="Page1">
+    
+    
 
+    
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Source/364622-1024x768.jpg"/>
@@ -17,6 +21,7 @@
                 <ImageBrush ImageSource="Source/364622-1024x768.jpg" Stretch="None"/>
             </Button.Background>
         </Button>
+        <Button Content="Watchlist" HorizontalAlignment="Left" Margin="54,98,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="ViewWatchlist"/>
 
     </Grid>
 </Page>

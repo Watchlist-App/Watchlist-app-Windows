@@ -16,27 +16,20 @@ using System.Windows.Shapes;
 namespace Watchlist_app_windows
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for Watchlist.xaml
     /// </summary>
-    public partial class Window1 : Page
+    public partial class Watchlist : Page
     {
-        public Window1()
+        public Watchlist()
         {
             InitializeComponent();
         }
 
-        private void ViewProfile(object sender, RoutedEventArgs e)
+        private void GoToMain(object sender, RoutedEventArgs e)
         {
-            WindowsList Singleton = WindowsList.GetInstance();
-            this.NavigationService.Navigate(Singleton.page2);
-        }
 
-        private void ViewWatchlist(object sender, RoutedEventArgs e)
-        {
             WindowsList Singleton = WindowsList.GetInstance();
-            this.NavigationService.Navigate(Singleton.page3);
+            this.NavigationService.Navigate(Singleton.page1);
         }
-
-      
     }
 }
