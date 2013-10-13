@@ -37,6 +37,17 @@ namespace Watchlist_app_windows
             this.NavigationService.Navigate(Singleton.page3);
         }
 
+        private void ViewFavorites(object sender, RoutedEventArgs e)
+        {
+            WindowsList Singleton = WindowsList.GetInstance();
+            this.NavigationService.Navigate(Singleton.page4);
+        }
+
+        private void exit(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
       
     }
 }
