@@ -5,16 +5,23 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       ShowsNavigationUI = "False"
-      d:DesignHeight="768" d:DesignWidth="1024"
+      d:DesignHeight="800" d:DesignWidth="1024"
 	Title="Page1">
 
 
 
 
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="Source/364622-1024x768.jpg"/>
-        </Grid.Background>
+    <Grid Background="{DynamicResource TitleBarBackgroundBrush}" RenderTransformOrigin="0.502,0.989">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="771*"/>
+            <RowDefinition Height="29*"/>
+        </Grid.RowDefinitions>
+        <StatusBar RenderTransformOrigin="0.5,0.5" Grid.Row="1">
+            <TextBlock>Ready</TextBlock>
+            <StatusBarItem HorizontalAlignment="Right">
+                <ResizeGrip Opacity="0.75"/>
+            </StatusBarItem>
+        </StatusBar>
         <TextBlock HorizontalAlignment="Left" Margin="915,66,0,0" TextWrapping="Wrap" Text="UserName" VerticalAlignment="Top" Height="22" Width="84" Cursor="Arrow" FontSize="16" FontWeight="Bold" Foreground="#FFB6931C"/>
         <Button Content="" HorizontalAlignment="Left" Margin="777,24,0,0" VerticalAlignment="Top" Width="116" Height="107" Click="ViewProfile">
             <Button.Effect>
@@ -29,7 +36,7 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <Button Content="" HorizontalAlignment="Left" Margin="836,668,0,0" VerticalAlignment="Top" Width="106" Height="36" Foreground="Black" SnapsToDevicePixels="True" Click="exit">
+        <Button Content="" HorizontalAlignment="Left" Margin="828,651,0,0" VerticalAlignment="Top" Width="106" Height="36" Foreground="Black" SnapsToDevicePixels="True" Click="exit">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -58,8 +65,12 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <Button Content="Request (Test)" HorizontalAlignment="Left" Margin="54,360,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="Button_Click"/>
-        <TextBox x:Name="textbox1" HorizontalAlignment="Left" Height="276" Margin="54,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244">
+        <Button Content="Request (Test)" HorizontalAlignment="Left" Margin="54,329,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="Button_Click">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <TextBox x:Name="textbox1" HorizontalAlignment="Left" Height="276" Margin="54,388,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244">
             <TextBox.Effect>
                 <DropShadowEffect/>
             </TextBox.Effect>
