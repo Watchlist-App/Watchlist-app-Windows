@@ -16,14 +16,21 @@ using System.Windows.Shapes;
 namespace Watchlist_app_windows
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ProfileWindow.xaml
     /// </summary>
-    public partial class MainWindow : NavigationWindow
+    public partial class ProfileWindow : Page
     {
-        public MainWindow()
+        public ProfileWindow()
         {
+            InitializeComponent();
+        }
+        private void GoToMain(object sender, RoutedEventArgs e)
+        {
+
             WindowsList Singleton = WindowsList.GetInstance();
             this.NavigationService.Navigate(Singleton.page1);
         }
+
+      
     }
 }
