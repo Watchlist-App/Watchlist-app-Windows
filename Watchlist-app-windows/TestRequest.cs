@@ -24,7 +24,7 @@ namespace Watchlist_app_windows
         }
         public void GetInfo()
         {
-            var request = System.Net.WebRequest.Create("http://api.themoviedb.org/3/movie/100?api_key=86afaae5fbe574d49418485ca1e58803") as System.Net.HttpWebRequest;
+            var request = System.Net.WebRequest.Create("http://api.themoviedb.org/3/movie/popular?api_key=86afaae5fbe574d49418485ca1e58803") as System.Net.HttpWebRequest;
             request.Proxy = null;
             request.Method = "GET";
             request.ContentLength = 0;
