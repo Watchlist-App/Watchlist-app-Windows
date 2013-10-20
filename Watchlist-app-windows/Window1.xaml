@@ -5,16 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       ShowsNavigationUI = "False"
-      d:DesignHeight="768" d:DesignWidth="1024"
+      d:DesignHeight="800" d:DesignWidth="1024"
 	Title="Page1">
 
 
 
 
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="Source/364622-1024x768.jpg"/>
-        </Grid.Background>
+    <Grid Background="{DynamicResource TitleBarBackgroundBrush}">
         <TextBlock HorizontalAlignment="Left" Margin="915,66,0,0" TextWrapping="Wrap" Text="UserName" VerticalAlignment="Top" Height="22" Width="84" Cursor="Arrow" FontSize="16" FontWeight="Bold" Foreground="#FFB6931C"/>
         <Button Content="" HorizontalAlignment="Left" Margin="777,24,0,0" VerticalAlignment="Top" Width="116" Height="107" Click="ViewProfile">
             <Button.Effect>
