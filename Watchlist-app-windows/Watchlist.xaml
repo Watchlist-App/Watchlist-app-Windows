@@ -4,14 +4,28 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="768" d:DesignWidth="1024"
+      d:DesignHeight="800" d:DesignWidth="1024"
 	Title="Watchlist">
 
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="Source/364622-1024x768.jpg"/>
-        </Grid.Background>
+    <Grid Background="{DynamicResource TitleBarBackgroundBrush}" RenderTransformOrigin="0.507,1.014">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="432*"/>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="306*"/>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <StatusBar RenderTransformOrigin="0.499,0.452" Grid.Row="4">
+            <TextBlock>Ready</TextBlock>
+            <StatusBarItem HorizontalAlignment="Right">
+                <ResizeGrip Opacity="0.75"/>
+            </StatusBarItem>
+        </StatusBar>
         <Button Content="Back" HorizontalAlignment="Left" Margin="54,98,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="GoToMain">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
             <Button.OpacityMask>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -19,7 +33,7 @@
                 </LinearGradientBrush>
             </Button.OpacityMask>
         </Button>
-        <TextBlock HorizontalAlignment="Left" Margin="378,536,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="459" Foreground="#FFEE0E0E"><Run Language="ru-ru" Text="Здесь будет "/><Run Text="watchlist"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="378,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="459" Foreground="#FFEE0E0E" Grid.Row="3" Height="32"><Run Language="ru-ru" Text="Здесь будет "/><Run Text="watchlist"/></TextBlock>
 
     </Grid>
 </Page>
