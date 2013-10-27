@@ -1,15 +1,15 @@
-﻿<Page x:Class="Watchlist_app_windows.Watchlist"
+﻿<Page x:Class="Watchlist_app_windows.Favorites"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="768" d:DesignWidth="1024"
-	Title="Watchlist">
+	Title="Favorites">
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="Source/364622-1024x768.jpg"/>
+            <ImageBrush ImageSource="/Images/364622-1024x768.jpg"/>
         </Grid.Background>
         <Button Content="Back" HorizontalAlignment="Left" Margin="54,98,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="GoToMain">
             <Button.OpacityMask>
@@ -19,7 +19,7 @@
                 </LinearGradientBrush>
             </Button.OpacityMask>
         </Button>
-        <TextBlock HorizontalAlignment="Left" Margin="378,536,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="459" Foreground="#FFEE0E0E"><Run Language="ru-ru" Text="Здесь будет "/><Run Text="watchlist"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="409,580,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="287" FontSize="24" Foreground="#FFE41E1E"><Run Language="ru-ru" Text="Здесь тоже что то будет"/></TextBlock>
 
     </Grid>
 </Page>
