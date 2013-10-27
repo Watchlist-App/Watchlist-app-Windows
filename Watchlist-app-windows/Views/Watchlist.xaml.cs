@@ -59,7 +59,7 @@ namespace Watchlist_app_windows
             {
                 textbox1.Text += "Title:  " + item.original_title + " ;";
             }
-            toDataGrid(myMovies);
+           // toDataGrid(myMovies);
 
         }
 
@@ -73,7 +73,7 @@ namespace Watchlist_app_windows
         {
             foreach (var item in data.results)
             {
-                DataGrid.ItemsSource = data;
+                //DataGrid.ItemsSource = data;
             }
         }
 

@@ -54,12 +54,6 @@
                 <DropShadowEffect/>
             </TextBox.Effect>
         </TextBox>
-        <DataGrid HorizontalAlignment="Left" Margin="373,113,0,0" VerticalAlignment="Top" RenderTransformOrigin="-13.833,-1.846" Height="485" Width="621" Grid.RowSpan="4" SelectionChanged="DataGrid_SelectionChanged">
-            <DataGrid.Columns>               
-                <DataGridTextColumn/>
-                <DataGridTextColumn/>
-            </DataGrid.Columns>
-        </DataGrid>
 
 
     </Grid>
