@@ -7,8 +7,8 @@
       d:DesignHeight="768" d:DesignWidth="1024"
 	Title="Tickets">
 
-    <Grid>        
-        <Button Content="Back" HorizontalAlignment="Left" Margin="54,98,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="GoToMain">
+    <Grid>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="53,597,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="GoToMain">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -19,7 +19,20 @@
                 </LinearGradientBrush>
             </Button.OpacityMask>
         </Button>
-        <TextBlock HorizontalAlignment="Left" Margin="409,580,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="287" FontSize="24" Foreground="#FFE41E1E"><Run Language="ru-ru" Text="Здесь тоже что то будет"/></TextBlock>
+        <TextBox x:Name="TextBox_1" HorizontalAlignment="Left" Height="23" Margin="358,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="509,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="102"><Run Text="Enter the zip-code"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="251,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="19" Width="102"><Run Text="Enter the film"/><LineBreak/><Run/></TextBlock>
+        <TextBox x:Name="TextBox_2" HorizontalAlignment="Left" Height="23" Margin="637,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="Button_1" Content="Get" HorizontalAlignment="Left" Margin="830,21,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+
+        <DataGrid x:Name="dataGrid2" HorizontalAlignment="Left" Margin="53,61,0,0" VerticalAlignment="Top" Height="484" Width="782">
+            <DataGrid.Columns>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Page>

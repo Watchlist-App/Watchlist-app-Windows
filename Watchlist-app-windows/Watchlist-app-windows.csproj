@@ -89,6 +89,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataFetchers\FandangoFetcher.cs" />
     <Compile Include="DataFetchers\Movies.cs" />
     <Compile Include="Views\Favorites.xaml.cs">
       <DependentUpon>Favorites.xaml</DependentUpon>
