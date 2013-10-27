@@ -21,19 +21,10 @@ namespace Watchlist_app_windows.DataFetchers
         public string ID { get; set; }
         public string Title { get; set; }
         public string Release_Date { get; set; }
-        public string Popularity { get; set; }       
-
-    }
-
-    public class MovieInfoViewModel
-    {
-        public ObservableCollection<MovieInfo> _movies = new ObservableCollection<MovieInfo>();
+        public string Popularity { get; set; }   
+        public string Vote_Average { get; set; }
 
         public ObservableCollection<MovieInfo> movieCall = new ObservableCollection<MovieInfo>();
-        public ObservableCollection<MovieInfo> Movies
-        {
-            get { return _movies; }
-            set { _movies = value; }
-        }
     }
+
 }
