@@ -22,7 +22,7 @@
                 <ResizeGrip Opacity="0.75"/>
             </StatusBarItem>
         </StatusBar>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="54,98,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="GoToMain">
+        <Button Content="Back" HorizontalAlignment="Left" Margin="192,165,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="GoToMain">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -33,7 +33,27 @@
                 </LinearGradientBrush>
             </Button.OpacityMask>
         </Button>
-        <TextBlock HorizontalAlignment="Left" Margin="378,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="459" Foreground="#FFEE0E0E" Grid.Row="3" Height="32"><Run Language="ru-ru" Text="Здесь будет "/><Run Text="watchlist"/></TextBlock>
+        <Button Content="Popular" HorizontalAlignment="Left" Margin="54,165,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="SearchPopular">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <TextBox x:Name="textbox1" HorizontalAlignment="Left" Height="276" Margin="54,322,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" Grid.RowSpan="4">
+            <TextBox.Effect>
+                <DropShadowEffect/>
+            </TextBox.Effect>
+        </TextBox>
+
+        <Button Content="Search" HorizontalAlignment="Left" Margin="192,105,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="SearchByTitle">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="23" Margin="54,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106">
+            <TextBox.Effect>
+                <DropShadowEffect/>
+            </TextBox.Effect>
+        </TextBox>
 
     </Grid>
 </Page>

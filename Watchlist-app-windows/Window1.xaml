@@ -65,16 +65,6 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <Button Content="Request (Test)" HorizontalAlignment="Left" Margin="54,329,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="Button_Click">
-            <Button.Effect>
-                <DropShadowEffect/>
-            </Button.Effect>
-        </Button>
-        <TextBox x:Name="textbox1" HorizontalAlignment="Left" Height="276" Margin="54,388,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244">
-            <TextBox.Effect>
-                <DropShadowEffect/>
-            </TextBox.Effect>
-        </TextBox>
 
     </Grid>
 </Page>
