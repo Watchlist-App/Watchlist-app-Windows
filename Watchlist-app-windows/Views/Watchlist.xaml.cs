@@ -18,6 +18,10 @@ using System.Runtime.Serialization.Json;
 using System.Web.Script.Serialization;
 using Watchlist_app_windows.DataFetchers;
 using System.Windows.Controls;
+using System;
+using System.Threading;
+using System.Windows.Forms;
+using Watchlist_app_windows.ViewControllers;
 
 namespace Watchlist_app_windows
 {
@@ -26,9 +30,9 @@ namespace Watchlist_app_windows
     /// </summary>
     public partial class Watchlist : Page
     {
-        public List<MovieInfo> temp2;
         public Watchlist()
-        {
+        {           
+            Data.EventHandler = new Data.MyEvent(toDataGrid);
             InitializeComponent();
         }
 
@@ -39,32 +43,42 @@ namespace Watchlist_app_windows
             this.NavigationService.Navigate(Singleton.page1);
         }
 
+
         private void SearchPopular(object sender, RoutedEventArgs e)
         {
             Get request = new Get("http://api.themoviedb.org/3/movie/popular?api_key=86afaae5fbe574d49418485ca1e58803");
-            Movies myMovies = Serialization(request.GetInfo());
-            toDataGrid(myMovies);
+            ThreadClass tc = new ThreadClass(request);
+            Thread searchThread = new Thread(new ThreadStart(tc.func));
+            searchThread.Start();
+          
         }
 
         private void SearchByTitle(object sender, RoutedEventArgs e)
         {
             string temp = searchBox.Text;
             Get request = new Get("http://api.themoviedb.org/3/search/movie?query=" + temp + "&api_key=86afaae5fbe574d49418485ca1e58803");
-            Movies myMovies = Serialization(request.GetInfo());
-            toDataGrid(myMovies);                          
+            ThreadClass tc = new ThreadClass(request);
+            Thread searchThread = new Thread(new ThreadStart(tc.func));
+            searchThread.Start();
         }
-
-        private Movies Serialization(string data)
+        public void toDataGrid(Movies myMovies)
         {
-            Movies myMovies = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<Movies>(data);           
-            return myMovies;
+            if (dataGrid1.Dispatcher.Thread == Thread.CurrentThread)
+            {
+                dataGrid1.ItemsSource = myMovies.results;
+                dataGrid1.Items.Refresh();
+            }
+            else
+            {
+                dataGrid1.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(delegate()
+                {
+                dataGrid1.ItemsSource = myMovies.results;
+                dataGrid1.Items.Refresh();
+            }));
+            }
+            
         }
-
-        void toDataGrid(Movies myMovies)
-        {
-            dataGrid1.ItemsSource = myMovies.results;
-            dataGrid1.Items.Refresh();
-        }
+ 
 
     }
 }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Controls;
 
 namespace Watchlist_app_windows
 {
@@ -23,6 +24,7 @@ namespace Watchlist_app_windows
         public Window1()
         {
             InitializeComponent();
+            Browser.Navigate(new Uri("http://www.google.com"));
         }
 
         private void ViewProfile(object sender, RoutedEventArgs e)
@@ -53,6 +55,8 @@ namespace Watchlist_app_windows
             WindowsList Singleton = WindowsList.GetInstance();
             this.NavigationService.Navigate(Singleton.page5);
         }
+
+
 
     }
 }
