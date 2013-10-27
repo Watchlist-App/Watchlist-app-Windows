@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Watchlist_app_windows
 {
     /// <summary>
-    /// Interaction logic for Watchlist.xaml
+    /// Interaction logic for Tickets.xaml
     /// </summary>
-    public partial class Watchlist : Page
+    public partial class Tickets : Page
     {
-        public Watchlist()
+        public Tickets()
         {
             InitializeComponent();
         }

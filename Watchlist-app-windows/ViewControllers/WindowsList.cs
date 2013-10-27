@@ -13,6 +13,7 @@ namespace Watchlist_app_windows
         private ProfileWindow pag2;
         private Watchlist pag3;
         private Favorites pag4;
+        private Tickets pag5;
         private WindowsList()
         {
 
@@ -20,6 +21,7 @@ namespace Watchlist_app_windows
             pag2 = new ProfileWindow();
             pag3 = new Watchlist();
             pag4 = new Favorites();
+            pag5 = new Tickets();
         }
         public static WindowsList GetInstance()
         {
@@ -45,6 +47,11 @@ namespace Watchlist_app_windows
         public Favorites page4
         {
             get { return pag4; }
+        }
+
+        public Tickets page5
+        {
+            get { return pag5; }
         }
     }
 }

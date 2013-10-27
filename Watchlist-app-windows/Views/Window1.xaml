@@ -11,7 +11,10 @@
 
 
 
-    <Grid Background="{DynamicResource TitleBarBackgroundBrush}" RenderTransformOrigin="0.502,0.989">
+    <Grid RenderTransformOrigin="0.502,0.989">
+        <Grid.Effect>
+            <DropShadowEffect/>
+        </Grid.Effect>
         <Grid.RowDefinitions>
             <RowDefinition Height="771*"/>
             <RowDefinition Height="29*"/>
@@ -27,22 +30,17 @@
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
-            <Button.Background>
-                <ImageBrush ImageSource="Source/364622-1024x768.jpg" Stretch="None"/>
-            </Button.Background>
+
         </Button>
-        <Button Content="Watchlist" HorizontalAlignment="Left" Margin="54,98,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="ViewWatchlist">
+        <Button Content="Films" HorizontalAlignment="Left" Margin="54,98,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="ViewWatchlist">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <Button Content="" HorizontalAlignment="Left" Margin="828,651,0,0" VerticalAlignment="Top" Width="106" Height="36" Foreground="Black" SnapsToDevicePixels="True" Click="exit">
+        <Button Content="Exit" HorizontalAlignment="Left" Margin="828,651,0,0" VerticalAlignment="Top" Width="106" Height="36" Foreground="Black" SnapsToDevicePixels="True" Click="exit" FontSize="14">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
-            <Button.Background>
-                <ImageBrush ImageSource="Source/exit_button.png"/>
-            </Button.Background>
             <Button.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -65,16 +63,7 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <Button Content="Request (Test)" HorizontalAlignment="Left" Margin="54,329,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="Button_Click">
-            <Button.Effect>
-                <DropShadowEffect/>
-            </Button.Effect>
-        </Button>
-        <TextBox x:Name="textbox1" HorizontalAlignment="Left" Height="276" Margin="54,388,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244">
-            <TextBox.Effect>
-                <DropShadowEffect/>
-            </TextBox.Effect>
-        </TextBox>
+        <Button Content="Bye Tickets" HorizontalAlignment="Left" Margin="54,224,0,0" VerticalAlignment="Top" Width="106" RenderTransformOrigin="-0.304,-0.057" Height="38" Click="Button_Click"/>
 
     </Grid>
 </Page>

@@ -11,35 +11,39 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
-namespace Watchlist_app_windows
+namespace Watchlist_app_windows.DataFetchers
 {
-    public class GetMovie
+    public class Get
     {
         protected string responseContent;
+        protected string URL;
 
-        public GetMovie()
+        public Get(string INFO)
         {
+            URL = INFO;
             responseContent = "Empty";
         }
-        public void GetInfo()
+        public string GetInfo()
         {
-            var request = System.Net.WebRequest.Create("http://api.themoviedb.org/3/movie/popular?api_key=86afaae5fbe574d49418485ca1e58803") as System.Net.HttpWebRequest;
+            var request = System.Net.WebRequest.Create(URL) as System.Net.HttpWebRequest;
             request.Proxy = null;
             request.Method = "GET";
             request.ContentLength = 0;
             using (var response = request.GetResponse() as System.Net.HttpWebResponse)
             {
+
                 using (var reader = new System.IO.StreamReader(response.GetResponseStream()))
                 {
                     responseContent = reader.ReadToEnd();
                 }
             }
+            return responseContent;
         }
         public string ReturnData()
         {
             return responseContent;
         }
-
     }
 }

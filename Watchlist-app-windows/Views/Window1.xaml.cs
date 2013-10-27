@@ -50,11 +50,9 @@ namespace Watchlist_app_windows
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            GetMovie test = new GetMovie();
-            test.GetInfo();
-            textbox1.Text = test.ReturnData();
+            WindowsList Singleton = WindowsList.GetInstance();
+            this.NavigationService.Navigate(Singleton.page5);
         }
 
-      
     }
 }
