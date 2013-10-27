@@ -109,6 +109,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Tickets.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Watchlist.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -124,6 +128,9 @@
     </Compile>
     <Compile Include="Views\Styles\CustomizedWindow\VS2012WindowStyle.cs" />
     <Compile Include="DataFetchers\Requests.cs" />
+    <Compile Include="Views\Tickets.xaml.cs">
+      <DependentUpon>Tickets.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Watchlist.xaml.cs">
       <DependentUpon>Watchlist.xaml</DependentUpon>
     </Compile>

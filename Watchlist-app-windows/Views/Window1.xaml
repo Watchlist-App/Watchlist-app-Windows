@@ -11,7 +11,10 @@
 
 
 
-    <Grid RenderTransformOrigin="0.502,0.989">        
+    <Grid RenderTransformOrigin="0.502,0.989">
+        <Grid.Effect>
+            <DropShadowEffect/>
+        </Grid.Effect>
         <Grid.RowDefinitions>
             <RowDefinition Height="771*"/>
             <RowDefinition Height="29*"/>
@@ -60,6 +63,7 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
+        <Button Content="Bye Tickets" HorizontalAlignment="Left" Margin="54,224,0,0" VerticalAlignment="Top" Width="106" RenderTransformOrigin="-0.304,-0.057" Height="38" Click="Button_Click"/>
 
     </Grid>
 </Page>
