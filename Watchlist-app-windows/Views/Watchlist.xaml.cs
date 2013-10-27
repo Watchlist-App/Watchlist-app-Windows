@@ -56,10 +56,13 @@ namespace Watchlist_app_windows
         private void SearchByTitle(object sender, RoutedEventArgs e)
         {
             string temp = searchBox.Text;
-            Get request = new Get("http://api.themoviedb.org/3/search/movie?query=" + temp + "&api_key=86afaae5fbe574d49418485ca1e58803");
-            ThreadClass tc = new ThreadClass(request);
-            Thread searchThread = new Thread(new ThreadStart(tc.func));
-            searchThread.Start();
+            if (temp != "")
+            {
+                Get request = new Get("http://api.themoviedb.org/3/search/movie?query=" + temp + "&api_key=86afaae5fbe574d49418485ca1e58803");
+                ThreadClass tc = new ThreadClass(request);
+                Thread searchThread = new Thread(new ThreadStart(tc.func));
+                searchThread.Start();
+            }
         }
         public void toDataGrid(Movies myMovies)
         {

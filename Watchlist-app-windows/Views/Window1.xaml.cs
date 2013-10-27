@@ -24,7 +24,7 @@ namespace Watchlist_app_windows
         public Window1()
         {
             InitializeComponent();
-            Browser.Navigate(new Uri("http://www.google.com"));
+            //Browser.Navigate(new Uri("http://www.google.com"));
         }
 
         private void ViewProfile(object sender, RoutedEventArgs e)
