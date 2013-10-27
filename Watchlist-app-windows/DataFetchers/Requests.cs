@@ -13,7 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 
-namespace Watchlist_app_windows
+namespace Watchlist_app_windows.DataFetchers
 {
     public class Get
     {
@@ -26,14 +26,14 @@ namespace Watchlist_app_windows
             responseContent = "Empty";
         }
         public string GetInfo()
-        {           
+        {
             var request = System.Net.WebRequest.Create(URL) as System.Net.HttpWebRequest;
             request.Proxy = null;
             request.Method = "GET";
             request.ContentLength = 0;
             using (var response = request.GetResponse() as System.Net.HttpWebResponse)
-            {           
-    
+            {
+
                 using (var reader = new System.IO.StreamReader(response.GetResponseStream()))
                 {
                     responseContent = reader.ReadToEnd();
@@ -44,6 +44,6 @@ namespace Watchlist_app_windows
         public string ReturnData()
         {
             return responseContent;
-        }        
+        }
     }
 }

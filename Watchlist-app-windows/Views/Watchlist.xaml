@@ -22,7 +22,7 @@
                 <ResizeGrip Opacity="0.75"/>
             </StatusBarItem>
         </StatusBar>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="54,234,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="GoToMain">
+        <Button Content="Back" HorizontalAlignment="Left" Margin="54,220,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="GoToMain" Grid.Row="3">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -33,7 +33,7 @@
                 </LinearGradientBrush>
             </Button.OpacityMask>
         </Button>
-        <Button Content="Popular" HorizontalAlignment="Left" Margin="54,165,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="SearchPopular">
+        <Button Content="Popular" HorizontalAlignment="Left" Margin="392,31,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="SearchPopular">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -44,18 +44,18 @@
             </TextBox.Effect>
         </TextBox>
 
-        <Button Content="Search" HorizontalAlignment="Left" Margin="766,31,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="SearchByTitle">
+        <Button Content="Search" HorizontalAlignment="Left" Margin="211,31,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="SearchByTitle">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="23" Margin="596,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106">
+        <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="23" Margin="54,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106">
             <TextBox.Effect>
                 <DropShadowEffect/>
             </TextBox.Effect>
         </TextBox>
         <DataGrid HorizontalAlignment="Left" Margin="373,113,0,0" VerticalAlignment="Top" RenderTransformOrigin="-13.833,-1.846" Height="485" Width="621" Grid.RowSpan="4" SelectionChanged="DataGrid_SelectionChanged">
-            <DataGrid.Columns>
+            <DataGrid.Columns>               
                 <DataGridTextColumn/>
                 <DataGridTextColumn/>
             </DataGrid.Columns>

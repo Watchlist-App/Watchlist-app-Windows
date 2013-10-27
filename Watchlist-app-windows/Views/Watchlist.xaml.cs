@@ -16,14 +16,16 @@ using System.IO;
 using System.Data;
 using System.Runtime.Serialization.Json;
 using System.Web.Script.Serialization;
+using Watchlist_app_windows.DataFetchers;
+using System.Windows.Controls;
 
 namespace Watchlist_app_windows
-{ 
+{
     /// <summary>
     /// Interaction logic for Watchlist.xaml
     /// </summary>
     public partial class Watchlist : Page
-    {            
+    {
         public Watchlist()
         {
             InitializeComponent();
@@ -40,6 +42,7 @@ namespace Watchlist_app_windows
         {
             Get request = new Get("http://api.themoviedb.org/3/movie/popular?api_key=86afaae5fbe574d49418485ca1e58803");
             Movies myMovies = Serialization(request.GetInfo());
+            textbox1.Text = "";
             foreach (var item in myMovies.results)
             {
                 textbox1.Text += "Title: " + item.original_title + " ;";
@@ -49,30 +52,30 @@ namespace Watchlist_app_windows
         private void SearchByTitle(object sender, RoutedEventArgs e)
         {
             string temp = searchBox.Text;
-            Get request = new Get("http://api.themoviedb.org/3/search/movie?query="+ temp + "&api_key=86afaae5fbe574d49418485ca1e58803");
-            Movies myMovies = Serialization(request.GetInfo());
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Title");
-            dt.Columns.Add("Id");
-            dt.Rows.Add("1", "2");
+            Get request = new Get("http://api.themoviedb.org/3/search/movie?query=" + temp + "&api_key=86afaae5fbe574d49418485ca1e58803");
+            Movies myMovies = Serialization(request.GetInfo());            
+            textbox1.Text = "";
             foreach (var item in myMovies.results)
-            {               
-                textbox1.Text += "Title:  " + item.original_title + " ;";          
+            {
+                textbox1.Text += "Title:  " + item.original_title + " ;";
             }
+            toDataGrid(myMovies);
+
         }
 
         private Movies Serialization(string data)
         {
-            Movies myMovies = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<Movies>(data);
-            /*DataGrid.DataSource = myMovies;
-            DataGrid.Columns[0].DisplayIndex = 1;*/
+            Movies myMovies = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<Movies>(data);           
             return myMovies;
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void toDataGrid(Movies data)
         {
+            foreach (var item in data.results)
+            {
+                DataGrid.ItemsSource = data;
+            }
         }
-
 
     }
 }

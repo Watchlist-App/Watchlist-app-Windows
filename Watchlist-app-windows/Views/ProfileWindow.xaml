@@ -9,7 +9,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="Source/364622-1024x768.jpg"/>
+            <ImageBrush ImageSource="/Images/364622-1024x768.jpg"/>
         </Grid.Background>
         <TextBlock HorizontalAlignment="Left" Margin="290,523,0,0" TextWrapping="Wrap" Text="Здесь будет информация о профиле" VerticalAlignment="Top" Height="67" Width="470" FontSize="24" Foreground="#FFECB90E"/>
         <Button Content="Back" HorizontalAlignment="Left" Margin="79,87,0,0" VerticalAlignment="Top" Width="103" Height="37" Click="GoToMain">
