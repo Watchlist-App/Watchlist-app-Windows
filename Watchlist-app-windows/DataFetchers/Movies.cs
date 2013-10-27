@@ -18,8 +18,11 @@ namespace Watchlist_app_windows.DataFetchers
     public class MovieInfo
     {
 
-        public string id { get; set; }
-        public string original_title { get; set; }
+        public string ID { get; set; }
+        public string Title { get; set; }
+        public string Release_Date { get; set; }
+        public string Popularity { get; set; }       
+
     }
 
     public class MovieInfoViewModel
