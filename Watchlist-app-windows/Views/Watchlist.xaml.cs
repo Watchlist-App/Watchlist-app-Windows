@@ -26,6 +26,7 @@ namespace Watchlist_app_windows
     /// </summary>
     public partial class Watchlist : Page
     {
+        public List<MovieInfo> temp2;
         public Watchlist()
         {
             InitializeComponent();
@@ -42,25 +43,15 @@ namespace Watchlist_app_windows
         {
             Get request = new Get("http://api.themoviedb.org/3/movie/popular?api_key=86afaae5fbe574d49418485ca1e58803");
             Movies myMovies = Serialization(request.GetInfo());
-            textbox1.Text = "";
-            foreach (var item in myMovies.results)
-            {
-                textbox1.Text += "Title: " + item.original_title + " ;";
-            }
+            toDataGrid(myMovies);
         }
 
         private void SearchByTitle(object sender, RoutedEventArgs e)
         {
             string temp = searchBox.Text;
             Get request = new Get("http://api.themoviedb.org/3/search/movie?query=" + temp + "&api_key=86afaae5fbe574d49418485ca1e58803");
-            Movies myMovies = Serialization(request.GetInfo());            
-            textbox1.Text = "";
-            foreach (var item in myMovies.results)
-            {
-                textbox1.Text += "Title:  " + item.original_title + " ;";
-            }
-           // toDataGrid(myMovies);
-
+            Movies myMovies = Serialization(request.GetInfo());
+            toDataGrid(myMovies);                          
         }
 
         private Movies Serialization(string data)
@@ -69,12 +60,10 @@ namespace Watchlist_app_windows
             return myMovies;
         }
 
-        private void toDataGrid(Movies data)
+        void toDataGrid(Movies myMovies)
         {
-            foreach (var item in data.results)
-            {
-                //DataGrid.ItemsSource = data;
-            }
+            dataGrid1.ItemsSource = myMovies.results;
+            dataGrid1.Items.Refresh();
         }
 
     }

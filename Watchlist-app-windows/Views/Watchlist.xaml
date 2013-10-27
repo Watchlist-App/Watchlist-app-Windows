@@ -1,8 +1,9 @@
-﻿<Page x:Class="Watchlist_app_windows.Watchlist"
+﻿<Page
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:DataFetchers="clr-namespace:Watchlist_app_windows.DataFetchers" x:Class="Watchlist_app_windows.Watchlist" 
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1024"
 	Title="Watchlist">
@@ -17,7 +18,7 @@
             <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
         <StatusBar RenderTransformOrigin="0.499,0.452" Grid.Row="4">
-            <TextBlock>Ready</TextBlock>
+            <TextBlock><Run Text="Ready"/></TextBlock>
             <StatusBarItem HorizontalAlignment="Right">
                 <ResizeGrip Opacity="0.75"/>
             </StatusBarItem>
@@ -38,11 +39,6 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <TextBox x:Name="textbox1" HorizontalAlignment="Left" Height="276" Margin="54,322,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" Grid.RowSpan="4">
-            <TextBox.Effect>
-                <DropShadowEffect/>
-            </TextBox.Effect>
-        </TextBox>
 
         <Button Content="Search" HorizontalAlignment="Left" Margin="211,31,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="SearchByTitle">
             <Button.Effect>
@@ -55,6 +51,9 @@
             </TextBox.Effect>
         </TextBox>
 
+        <DataGrid x:Name="dataGrid1" HorizontalAlignment="Left" Margin="54,128,0,0" VerticalAlignment="Top" Height="470" Width="878" Grid.RowSpan="4">
+            
+        </DataGrid>
 
     </Grid>
 </Page>

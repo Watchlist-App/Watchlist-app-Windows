@@ -5,19 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
+using System.Collections.ObjectModel;
 
 namespace Watchlist_app_windows.DataFetchers
 {
-    /*[DataContract]
-   internal class Movie
-   {
-         [DataMember]
-       internal string original_title;
-         [DataMember]
-       internal string id;
-   }*/
-
-
     public class Movies
     {
 
@@ -29,5 +20,17 @@ namespace Watchlist_app_windows.DataFetchers
 
         public string id { get; set; }
         public string original_title { get; set; }
+    }
+
+    public class MovieInfoViewModel
+    {
+        public ObservableCollection<MovieInfo> _movies = new ObservableCollection<MovieInfo>();
+
+        public ObservableCollection<MovieInfo> movieCall = new ObservableCollection<MovieInfo>();
+        public ObservableCollection<MovieInfo> Movies
+        {
+            get { return _movies; }
+            set { _movies = value; }
+        }
     }
 }
