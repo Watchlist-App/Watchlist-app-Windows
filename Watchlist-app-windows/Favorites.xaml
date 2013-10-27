@@ -9,7 +9,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Images/364622-1024x768.jpg"/>
+            <ImageBrush ImageSource="Source/364622-1024x768.jpg"/>
         </Grid.Background>
         <Button Content="Back" HorizontalAlignment="Left" Margin="54,98,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="GoToMain">
             <Button.OpacityMask>

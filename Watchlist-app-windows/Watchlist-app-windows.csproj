@@ -13,21 +13,6 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -68,11 +53,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Views\Favorites.xaml">
+    <Page Include="Favorites.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MainWindow.xaml">
+    <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -80,67 +65,47 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataBase\DataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Favorites.xaml.cs">
+    <Compile Include="Favorites.xaml.cs">
       <DependentUpon>Favorites.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MainWindow.xaml.cs">
+    <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\ProfileWindow.xaml">
+    <Page Include="ProfileWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Styles\CustomizedWindow\VS2012WindowStyle.xaml">
+    <Page Include="Styles\CustomizedWindow\VS2012WindowStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\themes\generic.xaml">
+    <Page Include="themes\generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Watchlist.xaml">
+    <Page Include="Watchlist.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Window1.xaml">
+    <Page Include="Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\ProfileWindow.xaml.cs">
+    <Compile Include="ProfileWindow.xaml.cs">
       <DependentUpon>ProfileWindow.xaml</DependentUpon>
-    </Compile>
-<<<<<<< HEAD
-    <Compile Include="DataSet1.cs">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Styles\CustomizedWindow\VS2012WindowStyle.cs" />
     <Compile Include="TestRequest.cs" />
     <Compile Include="Watchlist.xaml.cs">
-=======
-    <Compile Include="Views\Styles\CustomizedWindow\VS2012WindowStyle.cs" />
-    <Compile Include="DataFetchers\TestRequest.cs" />
-    <Compile Include="Views\Watchlist.xaml.cs">
->>>>>>> c624133cb9a7a0f171dca9b2406764fc1affb28c
       <DependentUpon>Watchlist.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Window1.xaml.cs">
+    <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewControllers\WindowsList.cs" />
+    <Compile Include="WindowsList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -158,72 +123,23 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="DataBase\DataSet.xsc">
-      <DependentUpon>DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="DataBase\DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataBase\DataSet.xss">
-      <DependentUpon>DataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\364622-1024x768.jpg" />
+    <Resource Include="Source\364622-1024x768.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\exit_button.png" />
+    <Resource Include="Source\exit_button.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <Content Include="DataBase\DataBase.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="DataBase\DataBase_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>DataBase.mdf</DependentUpon>
-    </Content>
+    <Resource Include="icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

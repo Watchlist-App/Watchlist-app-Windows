@@ -7,12 +7,6 @@
       d:DesignHeight="800" d:DesignWidth="1024"
 	Title="Watchlist">
 
-<<<<<<< HEAD:Watchlist-app-windows/Views/Watchlist.xaml
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="/Images/364622-1024x768.jpg"/>
-        </Grid.Background>
-=======
     <Grid Background="{DynamicResource TitleBarBackgroundBrush}" RenderTransformOrigin="0.507,1.014">
         <Grid.RowDefinitions>
             <RowDefinition Height="432*"/>
@@ -28,7 +22,6 @@
                 <ResizeGrip Opacity="0.75"/>
             </StatusBarItem>
         </StatusBar>
->>>>>>> 1c4271ce04a0be3f18dc6b8ed60389f08c01eb7e:Watchlist-app-windows/Watchlist.xaml
         <Button Content="Back" HorizontalAlignment="Left" Margin="54,98,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="GoToMain">
             <Button.Effect>
                 <DropShadowEffect/>
