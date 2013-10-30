@@ -1,4 +1,4 @@
-﻿<Page x:Class="Watchlist_app_windows.Favorites"
+﻿<Page x:Class="Watchlist_app_windows.Amazon"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,7 +7,7 @@
       d:DesignHeight="768" d:DesignWidth="1024"
 	Title="Favorites">
 
-    <Grid>        
+    <Grid>
         <Button Content="Back" HorizontalAlignment="Left" Margin="54,98,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="GoToMain">
             <Button.Effect>
                 <DropShadowEffect/>

@@ -75,6 +75,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\Amazon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Favorites.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -98,6 +102,9 @@
     <Compile Include="Threading.cs" />
     <Compile Include="ViewControllers\dataGridController.cs" />
     <Compile Include="Delegate.cs" />
+    <Compile Include="Views\Amazon.xaml.cs">
+      <DependentUpon>Amazon.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Favorites.xaml.cs">
       <DependentUpon>Favorites.xaml</DependentUpon>
     </Compile>

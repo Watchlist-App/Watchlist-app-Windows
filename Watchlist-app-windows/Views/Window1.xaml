@@ -64,7 +64,9 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <Button Content="Bye Tickets" HorizontalAlignment="Left" Margin="54,224,0,0" VerticalAlignment="Top" Width="106" RenderTransformOrigin="-0.304,-0.057" Height="38" Click="Button_Click"/>
+        <Button Content="Buy Tickets" HorizontalAlignment="Left" Margin="54,224,0,0" VerticalAlignment="Top" Width="106" RenderTransformOrigin="-0.304,-0.057" Height="38" Click="Fandango_fetch"/>
+        <Button Content="Amazon" HorizontalAlignment="Left" Margin="54,290,0,0" VerticalAlignment="Top" Width="106" RenderTransformOrigin="-0.304,-0.057" Height="38" Click="AmazonFetcher"/>
+        <Button Content="Watch &#xD;&#xA;Trailers" HorizontalAlignment="Left" Margin="54,363,0,0" VerticalAlignment="Top" Width="106" RenderTransformOrigin="-0.304,-0.057" Height="38" Click="YoutubeFetcher"/>
 
     </Grid>
 </Page>

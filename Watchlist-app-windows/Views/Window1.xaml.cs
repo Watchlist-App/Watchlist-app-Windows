@@ -50,10 +50,22 @@ namespace Watchlist_app_windows
             Environment.Exit(0);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Fandango_fetch(object sender, RoutedEventArgs e)
         {
             WindowsList Singleton = WindowsList.GetInstance();
             this.NavigationService.Navigate(Singleton.page5);
+        }
+
+        private void AmazonFetcher(object sender, RoutedEventArgs e)
+        {
+            WindowsList Singleton = WindowsList.GetInstance();
+            this.NavigationService.Navigate(Singleton.page6);
+        }
+
+        private void YoutubeFetcher(object sender, RoutedEventArgs e)
+        {
+          //  WindowsList Singleton = WindowsList.GetInstance();
+           // this.NavigationService.Navigate(Singleton.page7);
         }
 
 
