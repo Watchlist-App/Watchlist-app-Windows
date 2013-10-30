@@ -18,10 +18,10 @@ using System.Runtime.Serialization.Json;
 using System.Web.Script.Serialization;
 using Watchlist_app_windows.DataFetchers;
 using System.Windows.Controls;
-using System;
 using System.Threading;
 using System.Windows.Forms;
 using Watchlist_app_windows.ViewControllers;
+using System.Windows.Markup;
 
 namespace Watchlist_app_windows
 {
@@ -32,7 +32,7 @@ namespace Watchlist_app_windows
     {
         public Watchlist()
         {           
-            Data.EventHandler = new Data.MyEvent(toDataGrid);
+            Data.EventHandler = new Data.MyEvent(toDataGrid);          
             InitializeComponent();
         }
 
@@ -77,11 +77,29 @@ namespace Watchlist_app_windows
                 {
                 dataGrid1.ItemsSource = myMovies.results;
                 dataGrid1.Items.Refresh();
+
+
+                /*var col = new DataGridTemplateColumn();
+                string xaml = "<DataTemplate><Button Content=\"Add To Favorites\" /></DataTemplate>";
+                var sr = new MemoryStream(Encoding.UTF8.GetBytes(xaml));
+                var pc = new ParserContext();
+                pc.XmlnsDictionary.Add("", "http://schemas.microsoft.com/winfx/2006/xaml/presentation");
+                pc.XmlnsDictionary.Add("x", "http://schemas.microsoft.com/winfx/2006/xaml");
+                DataTemplate datatemplate = (DataTemplate)XamlReader.Load(sr, pc);
+                col.CellTemplate = datatemplate;
+                dataGrid1.Columns.Add(col);*/
             }));
             }
             
         }
- 
+
+        void ShowHideDetails(object sender, RoutedEventArgs e)
+        {
+            System.Windows.MessageBox.Show("Button press");
+        }
+
+        
+       
 
     }
 }

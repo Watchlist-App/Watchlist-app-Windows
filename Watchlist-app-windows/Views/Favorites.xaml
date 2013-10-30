@@ -7,7 +7,7 @@
       d:DesignHeight="768" d:DesignWidth="1024"
 	Title="Favorites">
 
-    <Grid>        
+    <Grid>
         <Button Content="Back" HorizontalAlignment="Left" Margin="54,98,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="GoToMain">
             <Button.Effect>
                 <DropShadowEffect/>
@@ -18,8 +18,14 @@
                     <GradientStop Color="#FFE81010" Offset="1"/>
                 </LinearGradientBrush>
             </Button.OpacityMask>
-        </Button>
-        <TextBlock HorizontalAlignment="Left" Margin="409,580,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="287" FontSize="24" Foreground="#FFE41E1E"><Run Language="ru-ru" Text="Здесь тоже что то будет"/></TextBlock>
+        </Button>        
+        <TextBlock HorizontalAlignment="Left" Margin="409,580,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="287" FontSize="24" Foreground="#FFE41E1E"><Run Language="ru-ru"/></TextBlock>
+        
+        <DataGrid HorizontalAlignment="Left" Margin="222,150,0,0" VerticalAlignment="Top" Height="390" Width="598">
+            <DataGrid.Effect>
+                <DropShadowEffect/>
+            </DataGrid.Effect>
+        </DataGrid>
 
     </Grid>
 </Page>

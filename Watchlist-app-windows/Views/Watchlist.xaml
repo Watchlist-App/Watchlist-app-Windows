@@ -51,8 +51,20 @@
             </TextBox.Effect>
         </TextBox>
 
-        <DataGrid x:Name="dataGrid1" HorizontalAlignment="Left" Margin="54,128,0,0" VerticalAlignment="Top" Height="470" Width="878" Grid.RowSpan="4" GridLinesVisibility="None">
-            
+        <DataGrid x:Name="dataGrid1" HorizontalAlignment="Left" Margin="54,125,0,0" VerticalAlignment="Top" Height="374" Width="878" Grid.RowSpan="4" GridLinesVisibility="None">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Add To Favorites" Click="ShowHideDetails" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+            <DataGrid.Effect>
+                <DropShadowEffect/>
+            </DataGrid.Effect>
+         
         </DataGrid>
 
     </Grid>
