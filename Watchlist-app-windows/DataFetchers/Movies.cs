@@ -14,11 +14,17 @@ namespace Watchlist_app_windows.DataFetchers
     {
 
         public List<MovieInfo> results { get; set; }
+        public List<MovieInfo> watchlist  { get; set; } 
+
     }
 
     public class MovieInfo
     {
 
+        public MovieInfo()
+        {
+            ID = "empty";
+        }
         public string ID { get; set; }
         public string Title { get; set; }
         public string Release_Date { get; set; }
@@ -26,9 +32,23 @@ namespace Watchlist_app_windows.DataFetchers
         //public string Popularity { get; set; }   
         public string Vote_Average { get; set; }
 
+        //public string owerview { get; set; }
+
         public ObservableCollection<MovieInfo> movieCall = new ObservableCollection<MovieInfo>();
 
-       //public List<MovieInfo> EditCommand { get; private set; }
+
+       
     }
 
+}
+
+public class Movie
+{
+
+    public string overview { get; set; }
+
+    public string poster_path { get; set; }
+    
+
+   // public ObservableCollection<Movie> movieCall = new ObservableCollection<Movie>();
 }

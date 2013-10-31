@@ -7,6 +7,7 @@ using Watchlist_app_windows.DataFetchers;
 using Watchlist_app_windows.ViewControllers;
 
 
+
 namespace Watchlist_app_windows
 {
     class ThreadClass
@@ -24,6 +25,14 @@ namespace Watchlist_app_windows
             Ser a = new Ser();
             Movies myMovies = a.Serialization(request.GetInfo());
             Data.EventHandler(myMovies);
+        }
+
+        public void func2()
+        {
+            request.GetInfo();
+            Ser a = new Ser();
+            Movie myMovie = a.Serialization_owerview(request.GetInfo());          
+            Owerview.EventHandler(myMovie);
         }
                 
       

@@ -19,9 +19,15 @@ using System.Web.Script.Serialization;
 using Watchlist_app_windows.DataFetchers;
 using System.Windows.Controls;
 using System.Threading;
-using System.Windows.Forms;
+//using System.Windows.Forms;
 using Watchlist_app_windows.ViewControllers;
 using System.Windows.Markup;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+
+
 
 namespace Watchlist_app_windows
 {
@@ -30,9 +36,11 @@ namespace Watchlist_app_windows
     /// </summary>
     public partial class Watchlist : Page
     {
+        Int32 index = 0;
         public Watchlist()
         {           
-            Data.EventHandler = new Data.MyEvent(toDataGrid);          
+            Data.EventHandler = new Data.MyEvent(toDataGrid);
+            Owerview.EventHandler = new Owerview.MyEvent(toTextBlock);     
             InitializeComponent();
         }
 
@@ -54,7 +62,7 @@ namespace Watchlist_app_windows
         }
 
         private void SearchByTitle(object sender, RoutedEventArgs e)
-        {
+        {           
             string temp = searchBox.Text;
             if (temp != "")
             {
@@ -76,27 +84,53 @@ namespace Watchlist_app_windows
                 dataGrid1.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(delegate()
                 {
                 dataGrid1.ItemsSource = myMovies.results;
-                dataGrid1.Items.Refresh();
-
-
-                /*var col = new DataGridTemplateColumn();
-                string xaml = "<DataTemplate><Button Content=\"Add To Favorites\" /></DataTemplate>";
-                var sr = new MemoryStream(Encoding.UTF8.GetBytes(xaml));
-                var pc = new ParserContext();
-                pc.XmlnsDictionary.Add("", "http://schemas.microsoft.com/winfx/2006/xaml/presentation");
-                pc.XmlnsDictionary.Add("x", "http://schemas.microsoft.com/winfx/2006/xaml");
-                DataTemplate datatemplate = (DataTemplate)XamlReader.Load(sr, pc);
-                col.CellTemplate = datatemplate;
-                dataGrid1.Columns.Add(col);*/
+                dataGrid1.Items.Refresh();            
             }));
             }
+           
             
         }
 
         void ShowHideDetails(object sender, RoutedEventArgs e)
         {
-            System.Windows.MessageBox.Show("Button press");
+            MovieInfo Movie = (MovieInfo)dataGrid1.SelectedItem;      
         }
+
+        private void dataGrid1_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
+            MovieInfo Movie = (MovieInfo)dataGrid1.SelectedItem;            
+            Get request = new Get("http://api.themoviedb.org/3/movie/" + Movie.ID + "?api_key=86afaae5fbe574d49418485ca1e58803");
+            ThreadClass tc = new ThreadClass(request);
+            Thread searchThread = new Thread(new ThreadStart(tc.func2));
+            searchThread.Start();
+            
+        }
+
+        public void toTextBlock(Movie myMovie)
+        {
+            if (TextBlock1.Dispatcher.Thread == Thread.CurrentThread)
+            {                
+                Uri pictureUri = new Uri("http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w300" + myMovie.poster_path);
+                BitmapImage image = new BitmapImage(pictureUri);
+                picture.Source = image;
+                TextBlock1.Text = myMovie.overview;
+            }
+            else
+            {
+                TextBlock1.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(delegate()
+                {
+                    
+                    Uri pictureUri = new Uri("http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w300" + myMovie.poster_path);
+                    BitmapImage image = new BitmapImage(pictureUri);                   
+                    picture.Source = image;
+                    TextBlock1.Text = myMovie.overview;
+                }));
+
+            }
+
+        }
+       
 
         
        

@@ -51,7 +51,7 @@
             </TextBox.Effect>
         </TextBox>
 
-        <DataGrid x:Name="dataGrid1" HorizontalAlignment="Left" Margin="54,125,0,0" VerticalAlignment="Top" Height="374" Width="878" Grid.RowSpan="4" GridLinesVisibility="None">
+        <DataGrid x:Name="dataGrid1" SelectedItem="{Binding Path=SelectedMovie, Mode=TwoWay}" HorizontalAlignment="Left" Margin="54,125,0,0" VerticalAlignment="Top" Height="374" Width="556" Grid.RowSpan="4" GridLinesVisibility="None" SelectionChanged="dataGrid1_SelectionChanged" >
             <DataGrid.Columns>
                 <DataGridTemplateColumn >
                     <DataGridTemplateColumn.CellTemplate>
@@ -64,8 +64,14 @@
             <DataGrid.Effect>
                 <DropShadowEffect/>
             </DataGrid.Effect>
-         
+
         </DataGrid>
+        <Image x:Name="picture" HorizontalAlignment="Left" Height="242" Margin="690,126,0,0" VerticalAlignment="Top" Width="233">
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
+        <TextBlock x:Name="TextBlock1" HorizontalAlignment="Left" Margin="690,384,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="131" Grid.RowSpan="4" Width="274" FontSize="14"/>
 
     </Grid>
 </Page>
