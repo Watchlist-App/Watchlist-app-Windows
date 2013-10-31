@@ -18,9 +18,9 @@
                     <GradientStop Color="#FFE81010" Offset="1"/>
                 </LinearGradientBrush>
             </Button.OpacityMask>
-        </Button>        
+        </Button>
         <TextBlock HorizontalAlignment="Left" Margin="409,580,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="287" FontSize="24" Foreground="#FFE41E1E"><Run Language="ru-ru"/></TextBlock>
-        <DataGrid x:Name="dataGrid2" HorizontalAlignment="Left" Margin="54,125,0,0" VerticalAlignment="Top" Height="374" Width="878" Grid.RowSpan="4" GridLinesVisibility="None">
+        <DataGrid x:Name="dataGrid2" HorizontalAlignment="Left" Margin="54,167,0,0" VerticalAlignment="Top" Height="374" Width="878" GridLinesVisibility="None">
             <DataGrid.Effect>
                 <DropShadowEffect/>
             </DataGrid.Effect>

@@ -21,10 +21,14 @@ namespace Watchlist_app_windows
     /// </summary>
     public partial class Window1 : Page
     {
+        public List<Movie> MyWatchList = new List<Movie> { };
+        int count;
+        int max_count;
         public Window1()
         {
+            int count = 0;
             InitializeComponent();
-            //Browser.Navigate(new Uri("http://www.google.com"));
+            WatchListData.EventHandler = new WatchListData.MyEvent(toWatchlist);
         }
 
         private void ViewProfile(object sender, RoutedEventArgs e)
@@ -68,7 +72,33 @@ namespace Watchlist_app_windows
            // this.NavigationService.Navigate(Singleton.page7);
         }
 
+        public void toViewBox(Movie myMovie)
+        {         
+                    Uri pictureUri = new Uri("http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w300" + myMovie.poster_path);
+                    BitmapImage image = new BitmapImage(pictureUri);
+                    picture.Source = image;
+                    TextBlock1.Text = myMovie.overview;
+                    TextBlock2.Text = myMovie.Title;
+        }
 
 
+        public void toWatchlist(Movie myMovie)
+        {           
+            MyWatchList.Add(myMovie);
+            toViewBox(MyWatchList[0]);                     
+        }
+
+        private void go_back(object sender, RoutedEventArgs e)
+        {
+            if (count >0)
+                toViewBox(MyWatchList[--count]);
+        }
+
+        private void go_forward(object sender, RoutedEventArgs e)
+        {
+            if (count < MyWatchList.Count-1)
+                toViewBox(MyWatchList[++count]);
+        }
+        }
     }
-}
+

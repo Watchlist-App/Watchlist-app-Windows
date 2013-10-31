@@ -36,11 +36,11 @@ namespace Watchlist_app_windows
     /// </summary>
     public partial class Watchlist : Page
     {
-        Int32 index = 0;
+        Movie currentMovie = new Movie();
         public Watchlist()
         {           
             Data.EventHandler = new Data.MyEvent(toDataGrid);
-            Owerview.EventHandler = new Owerview.MyEvent(toTextBlock);     
+            MetaData.EventHandler = new MetaData.MyEvent(toViewBox);     
             InitializeComponent();
         }
 
@@ -99,22 +99,27 @@ namespace Watchlist_app_windows
         private void dataGrid1_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
 
-            MovieInfo Movie = (MovieInfo)dataGrid1.SelectedItem;            
-            Get request = new Get("http://api.themoviedb.org/3/movie/" + Movie.ID + "?api_key=86afaae5fbe574d49418485ca1e58803");
-            ThreadClass tc = new ThreadClass(request);
-            Thread searchThread = new Thread(new ThreadStart(tc.func2));
-            searchThread.Start();
+            MovieInfo Movie = (MovieInfo)dataGrid1.SelectedItem;
+            if (Movie != null)
+            {
+                Get request = new Get("http://api.themoviedb.org/3/movie/" + Movie.ID + "?api_key=86afaae5fbe574d49418485ca1e58803");
+                ThreadClass tc = new ThreadClass(request);
+                Thread searchThread = new Thread(new ThreadStart(tc.func2));
+                searchThread.Start();
+            }
             
         }
 
-        public void toTextBlock(Movie myMovie)
+        public void toViewBox(Movie myMovie)
         {
+            currentMovie = myMovie;
             if (TextBlock1.Dispatcher.Thread == Thread.CurrentThread)
             {                
                 Uri pictureUri = new Uri("http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w300" + myMovie.poster_path);
                 BitmapImage image = new BitmapImage(pictureUri);
                 picture.Source = image;
                 TextBlock1.Text = myMovie.overview;
+                TextBlock2.Text = myMovie.Title;
             }
             else
             {
@@ -125,13 +130,17 @@ namespace Watchlist_app_windows
                     BitmapImage image = new BitmapImage(pictureUri);                   
                     picture.Source = image;
                     TextBlock1.Text = myMovie.overview;
+                    TextBlock2.Text = myMovie.Title;
                 }));
 
             }
 
         }
        
-
+        private void ToWatchlist(object sender, RoutedEventArgs e)
+        {
+            WatchListData.EventHandler(currentMovie);
+        }
         
        
 

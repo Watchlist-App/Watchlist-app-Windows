@@ -44,7 +44,7 @@ namespace Watchlist_app_windows.DataFetchers
 
 public class Movie
 {
-
+    public string Title { get; set; }
     public string overview { get; set; }
 
     public string poster_path { get; set; }

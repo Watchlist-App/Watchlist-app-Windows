@@ -34,24 +34,24 @@
                 </LinearGradientBrush>
             </Button.OpacityMask>
         </Button>
-        <Button Content="Popular" HorizontalAlignment="Left" Margin="392,31,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="SearchPopular">
+        <Button Content="Popular" HorizontalAlignment="Left" Margin="392,30,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="SearchPopular">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
 
-        <Button Content="Search" HorizontalAlignment="Left" Margin="211,31,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="SearchByTitle">
+        <Button Content="Search" HorizontalAlignment="Left" Margin="218,30,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="SearchByTitle">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="23" Margin="54,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106">
+        <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="23" Margin="54,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106">
             <TextBox.Effect>
                 <DropShadowEffect/>
             </TextBox.Effect>
         </TextBox>
 
-        <DataGrid x:Name="dataGrid1" SelectedItem="{Binding Path=SelectedMovie, Mode=TwoWay}" HorizontalAlignment="Left" Margin="54,125,0,0" VerticalAlignment="Top" Height="374" Width="556" Grid.RowSpan="4" GridLinesVisibility="None" SelectionChanged="dataGrid1_SelectionChanged" >
+        <DataGrid x:Name="dataGrid1" SelectedItem="{Binding Path=SelectedMovie, Mode=TwoWay}" HorizontalAlignment="Left" Margin="54,125,0,0" VerticalAlignment="Top" Height="374" Width="556" Grid.RowSpan="4" GridLinesVisibility="None" SelectionChanged="dataGrid1_SelectionChanged" BorderThickness="0" >
             <DataGrid.Columns>
                 <DataGridTemplateColumn >
                     <DataGridTemplateColumn.CellTemplate>
@@ -71,7 +71,17 @@
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <TextBlock x:Name="TextBlock1" HorizontalAlignment="Left" Margin="690,384,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="131" Grid.RowSpan="4" Width="274" FontSize="14"/>
+        <TextBlock x:Name="TextBlock1" HorizontalAlignment="Left" Margin="690,384,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="235" Grid.RowSpan="4" Width="274" FontSize="14"/>
+        <TextBlock  x:Name="TextBlock2" HorizontalAlignment="Left" Margin="690,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="245" FontSize="22">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <Button Content="Add to &#xD;&#xA;Watchlist" HorizontalAlignment="Left" Margin="690,30,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="ToWatchlist">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
 
     </Grid>
 </Page>

@@ -32,7 +32,7 @@ namespace Watchlist_app_windows
             request.GetInfo();
             Ser a = new Ser();
             Movie myMovie = a.Serialization_owerview(request.GetInfo());          
-            Owerview.EventHandler(myMovie);
+            MetaData.EventHandler(myMovie);
         }
                 
       

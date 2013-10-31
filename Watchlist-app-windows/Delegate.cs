@@ -13,7 +13,13 @@ namespace Watchlist_app_windows
         public static MyEvent EventHandler;
     }
 
-    public static class Owerview
+    public static class MetaData
+    {
+        public delegate void MyEvent(Movie myMovies);
+        public static MyEvent EventHandler;
+    }
+
+    public static class WatchListData
     {
         public delegate void MyEvent(Movie myMovies);
         public static MyEvent EventHandler;
