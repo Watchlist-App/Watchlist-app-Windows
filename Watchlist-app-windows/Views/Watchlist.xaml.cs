@@ -169,5 +169,18 @@ namespace Watchlist_app_windows
                 searchThread.Start();
             }
         }
+        private void SearchNowPlaying(object sender, RoutedEventArgs e)
+        {
+            Get request = new Get("http://api.themoviedb.org/3/movie/now_playing?api_key=86afaae5fbe574d49418485ca1e58803");
+            ThreadClass tc = new ThreadClass(request);
+            Thread searchThread = new Thread(new ThreadStart(tc.func));
+            searchThread.Start();
+        }
+        private void toFandangoFetcher(object sender, RoutedEventArgs e)
+        {
+            //переход к поиску билетов
+        }
+
+
     }
 }

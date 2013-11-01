@@ -77,7 +77,7 @@
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <Button Content="Add to &#xD;&#xA;Watchlist" HorizontalAlignment="Left" Margin="733,30,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="ToWatchlist">
+        <Button Content="Add to &#xD;&#xA;Watchlist" HorizontalAlignment="Left" Margin="690,29,0,0" VerticalAlignment="Top" Width="107" Height="37" Click="ToWatchlist">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -93,6 +93,16 @@
             </Button.Effect>
         </Button>
         <Button Content="Similar Movies" HorizontalAlignment="Left" Margin="218,119,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="Searchsimilar_movies" Grid.Row="3">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button Content="Now Playing" HorizontalAlignment="Left" Margin="364,119,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="SearchNowPlaying" Grid.Row="3">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button Content="Find Tickets" HorizontalAlignment="Left" Margin="858,30,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="toFandangoFetcher">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
