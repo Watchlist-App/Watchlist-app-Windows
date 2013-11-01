@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Controls;
+using Watchlist_app_windows.DataBase;
+
+
 
 namespace Watchlist_app_windows
 {
@@ -21,12 +24,13 @@ namespace Watchlist_app_windows
     /// </summary>
     public partial class Window1 : Page
     {
-        public List<Movie> MyWatchList = new List<Movie> { };
+        DataSet Movie = new DataSet();
+
+        public List<Movie> MyWatchList = new List<Movie> { };       
         int count;
-        int max_count;
+
         public Window1()
         {
-            int count = 0;
             InitializeComponent();
             WatchListData.EventHandler = new WatchListData.MyEvent(toWatchlist);
         }
@@ -50,7 +54,7 @@ namespace Watchlist_app_windows
         }
 
         private void exit(object sender, RoutedEventArgs e)
-        {
+        {          
             Environment.Exit(0);
         }
 
@@ -59,19 +63,16 @@ namespace Watchlist_app_windows
             WindowsList Singleton = WindowsList.GetInstance();
             this.NavigationService.Navigate(Singleton.page5);
         }
-
         private void AmazonFetcher(object sender, RoutedEventArgs e)
         {
             WindowsList Singleton = WindowsList.GetInstance();
             this.NavigationService.Navigate(Singleton.page6);
         }
-
         private void YoutubeFetcher(object sender, RoutedEventArgs e)
         {
           //  WindowsList Singleton = WindowsList.GetInstance();
            // this.NavigationService.Navigate(Singleton.page7);
         }
-
         public void toViewBox(Movie myMovie)
         {         
                     Uri pictureUri = new Uri("http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w300" + myMovie.poster_path);
@@ -79,26 +80,54 @@ namespace Watchlist_app_windows
                     picture.Source = image;
                     TextBlock1.Text = myMovie.overview;
                     TextBlock2.Text = myMovie.Title;
+                    if (myMovie.Watch_flag == 1)
+                        TextBlock3.Text = "Seen";
+                    else
+                        TextBlock3.Text = null;
+                    dataGrid1.ItemsSource = MyWatchList;
+                    dataGrid1.Items.Refresh();
+    
         }
-
-
         public void toWatchlist(Movie myMovie)
-        {           
+        {   
+        
             MyWatchList.Add(myMovie);
             toViewBox(MyWatchList[0]);                     
         }
-
         private void go_back(object sender, RoutedEventArgs e)
         {
             if (count >0)
                 toViewBox(MyWatchList[--count]);
         }
-
         private void go_forward(object sender, RoutedEventArgs e)
         {
             if (count < MyWatchList.Count-1)
                 toViewBox(MyWatchList[++count]);
         }
+        private void remove(object sender, RoutedEventArgs e)
+        {
+           MyWatchList.RemoveAt(count);
+           if (count == 0)
+           {
+               picture.Source = null;
+               TextBlock1.Text = "";
+               TextBlock2.Text = "";
+               TextBlock3.Text = "";
+               return;
+           }
+            toViewBox(MyWatchList[count]);
+        }
+        private void wasWatched(object sender, RoutedEventArgs e)
+        {
+             MyWatchList[count].Watch_flag = 1;
+             toViewBox(MyWatchList[count]);
+        }
+        private void dataGrid1_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            Movie SelectedMovie = (Movie)dataGrid1.SelectedItem;
+            toViewBox(SelectedMovie);
+        }
+       
         }
     }
 

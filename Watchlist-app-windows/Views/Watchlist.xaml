@@ -34,7 +34,7 @@
                 </LinearGradientBrush>
             </Button.OpacityMask>
         </Button>
-        <Button Content="Popular" HorizontalAlignment="Left" Margin="392,30,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="SearchPopular">
+        <Button Content="Popular" HorizontalAlignment="Left" Margin="364,30,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="SearchPopular">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -77,7 +77,22 @@
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <Button Content="Add to &#xD;&#xA;Watchlist" HorizontalAlignment="Left" Margin="690,30,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="ToWatchlist">
+        <Button Content="Add to &#xD;&#xA;Watchlist" HorizontalAlignment="Left" Margin="733,30,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="ToWatchlist">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button Content="Top Rated" HorizontalAlignment="Left" Margin="504,30,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="SearchTopRated">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button Content="Upcoming" HorizontalAlignment="Left" Margin="54,119,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="SearchUpcoming" Grid.Row="3">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button Content="Similar Movies" HorizontalAlignment="Left" Margin="218,119,0,0" VerticalAlignment="Top" Width="106" Height="37" Click="Searchsimilar_movies" Grid.Row="3">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>

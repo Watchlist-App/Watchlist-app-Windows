@@ -44,11 +44,17 @@ namespace Watchlist_app_windows.DataFetchers
 
 public class Movie
 {
+    public Movie()
+        {
+            id = "empty";
+        }
     public string Title { get; set; }
     public string overview { get; set; }
-
     public string poster_path { get; set; }
-    
 
-   // public ObservableCollection<Movie> movieCall = new ObservableCollection<Movie>();
+    public int Watch_flag;
+
+    public string id { get; set; }
+
+    public ObservableCollection<Movie> movieCall = new ObservableCollection<Movie>();
 }

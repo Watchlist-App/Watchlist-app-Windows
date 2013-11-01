@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DataBaseConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="DataBaseConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Watchlist_app_windows.Properties.Settings.GlobalReference.Default.DataBaseConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DataBaseConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DataBaseConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Watchlist_app_windows.Properties.Settings.GlobalReference.Default.DataBaseConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables />
         <Sources />
@@ -14,11 +14,20 @@
   <xs:element name="DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DataSet" msprop:Generator_UserDSName="DataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+        <xs:element name="Movie" msdata:CaseSensitive="True" msdata:Locale="en" msprop:Generator_TableClassName="MovieDataTable" msprop:Generator_TableVarName="tableMovie" msprop:Generator_RowChangedName="MovieRowChanged" msprop:Generator_TablePropName="Movie" msprop:Generator_RowDeletingName="MovieRowDeleting" msprop:Generator_RowChangingName="MovieRowChanging" msprop:Generator_RowEvHandlerName="MovieRowChangeEventHandler" msprop:Generator_RowDeletedName="MovieRowDeleted" msprop:Generator_RowClassName="MovieRow" msprop:Generator_UserTableName="Movie" msprop:Generator_RowEvArgName="MovieRowChangeEvent">
           <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Title" msprop:Generator_ColumnVarNameInTable="columnTitle" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_ColumnPropNameInTable="TitleColumn" msprop:Generator_UserColumnName="Title" type="xs:string" />
+              <xs:element name="owerview" msprop:Generator_ColumnVarNameInTable="columnowerview" msprop:Generator_ColumnPropNameInRow="owerview" msprop:Generator_ColumnPropNameInTable="owerviewColumn" msprop:Generator_UserColumnName="owerview" type="xs:string" minOccurs="0" />
+              <xs:element name="poster_path" msprop:Generator_ColumnVarNameInTable="columnposter_path" msprop:Generator_ColumnPropNameInRow="poster_path" msprop:Generator_ColumnPropNameInTable="poster_pathColumn" msprop:Generator_UserColumnName="poster_path" type="xs:string" minOccurs="0" />
+            </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>
     </xs:complexType>
+    <xs:unique name="MovieKey1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Movie" />
+      <xs:field xpath="mstns:Title" />
+    </xs:unique>
   </xs:element>
 </xs:schema>

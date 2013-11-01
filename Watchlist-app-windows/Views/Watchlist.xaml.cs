@@ -17,14 +17,10 @@ using System.Data;
 using System.Runtime.Serialization.Json;
 using System.Web.Script.Serialization;
 using Watchlist_app_windows.DataFetchers;
-using System.Windows.Controls;
 using System.Threading;
-//using System.Windows.Forms;
 using Watchlist_app_windows.ViewControllers;
 using System.Windows.Markup;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 
 
@@ -50,8 +46,6 @@ namespace Watchlist_app_windows
             WindowsList Singleton = WindowsList.GetInstance();
             this.NavigationService.Navigate(Singleton.page1);
         }
-
-
         private void SearchPopular(object sender, RoutedEventArgs e)
         {
             Get request = new Get("http://api.themoviedb.org/3/movie/popular?api_key=86afaae5fbe574d49418485ca1e58803");
@@ -60,7 +54,6 @@ namespace Watchlist_app_windows
             searchThread.Start();
           
         }
-
         private void SearchByTitle(object sender, RoutedEventArgs e)
         {           
             string temp = searchBox.Text;
@@ -90,12 +83,10 @@ namespace Watchlist_app_windows
            
             
         }
-
         void ShowHideDetails(object sender, RoutedEventArgs e)
         {
             MovieInfo Movie = (MovieInfo)dataGrid1.SelectedItem;      
         }
-
         private void dataGrid1_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
 
@@ -109,7 +100,6 @@ namespace Watchlist_app_windows
             }
             
         }
-
         public void toViewBox(Movie myMovie)
         {
             currentMovie = myMovie;
@@ -126,8 +116,9 @@ namespace Watchlist_app_windows
                 TextBlock1.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(delegate()
                 {
                     
-                    Uri pictureUri = new Uri("http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w300" + myMovie.poster_path);
-                    BitmapImage image = new BitmapImage(pictureUri);                   
+                    Uri pictureUri = new Uri("http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w300" + myMovie.poster_path);              
+                    BitmapImage image = new BitmapImage(pictureUri);                                       
+                    image.DownloadCompleted += objImage_DownloadCompleted;
                     picture.Source = image;
                     TextBlock1.Text = myMovie.overview;
                     TextBlock2.Text = myMovie.Title;
@@ -135,14 +126,48 @@ namespace Watchlist_app_windows
 
             }
 
-        }
-       
+        }      
         private void ToWatchlist(object sender, RoutedEventArgs e)
         {
             WatchListData.EventHandler(currentMovie);
         }
-        
-       
+        private void objImage_DownloadCompleted(object sender, EventArgs e)
+        {
+            JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+            Guid photoID = System.Guid.NewGuid();
+            String photolocation = photoID.ToString() + ".jpg";  //file name           
 
+            encoder.Frames.Add(BitmapFrame.Create((BitmapImage)sender));
+
+            using (var filestream = new FileStream(photolocation, FileMode.Create))
+                encoder.Save(filestream);
+        }
+        private void SearchTopRated(object sender, RoutedEventArgs e)
+        {
+            Get request = new Get("http://api.themoviedb.org/3/movie/top_rated?api_key=86afaae5fbe574d49418485ca1e58803");
+            ThreadClass tc = new ThreadClass(request);
+            Thread searchThread = new Thread(new ThreadStart(tc.func));
+            searchThread.Start();
+
+        } 
+        private void SearchUpcoming(object sender, RoutedEventArgs e)
+        {
+            Get request = new Get("http://api.themoviedb.org/3/movie/upcoming?api_key=86afaae5fbe574d49418485ca1e58803");
+            ThreadClass tc = new ThreadClass(request);
+            Thread searchThread = new Thread(new ThreadStart(tc.func));
+            searchThread.Start();
+
+
+        }
+        private void Searchsimilar_movies(object sender, RoutedEventArgs e)
+        {
+            if (currentMovie.id != "empty")
+            {
+                Get request = new Get("http://api.themoviedb.org/3/movie/" + currentMovie.id + "/similar_movies?api_key=86afaae5fbe574d49418485ca1e58803");
+                ThreadClass tc = new ThreadClass(request);
+                Thread searchThread = new Thread(new ThreadStart(tc.func));
+                searchThread.Start();
+            }
+        }
     }
 }
