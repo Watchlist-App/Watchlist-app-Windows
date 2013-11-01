@@ -19,12 +19,22 @@
                 </LinearGradientBrush>
             </Button.OpacityMask>
         </Button>
-        <TextBlock HorizontalAlignment="Left" Margin="409,580,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="287" FontSize="24" Foreground="#FFE41E1E"><Run Language="ru-ru"/></TextBlock>
-        <DataGrid x:Name="dataGrid2" HorizontalAlignment="Left" Margin="54,167,0,0" VerticalAlignment="Top" Height="374" Width="878" GridLinesVisibility="None">
-            <DataGrid.Effect>
+        <TextBlock HorizontalAlignment="Left" Margin="106,582,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="287" FontSize="24" Foreground="#FFE41E1E"><Run Language="ru-ru"/></TextBlock>
+        <Image x:Name="picture" HorizontalAlignment="Left" Height="242" Margin="388,191,0,0" VerticalAlignment="Top" Width="233">
+            <Image.Effect>
                 <DropShadowEffect/>
-            </DataGrid.Effect>
-        </DataGrid>
+            </Image.Effect>
+        </Image>
+        <TextBlock x:Name="TextBlock1" HorizontalAlignment="Left" Margin="388,449,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="235" Width="274" FontSize="14"/>
+        <TextBlock  x:Name="TextBlock2" HorizontalAlignment="Left" Margin="346,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="307" FontSize="22">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="586" Margin="332,98,0,0" VerticalAlignment="Top" Width="370">
+            <Button  Content="&gt;&gt;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="go_forward" Margin="401,570,-108,-6"/>
+        </Border>
+        <Button  Content="&lt;&lt;" HorizontalAlignment="Left" Margin="231,669,0,0" VerticalAlignment="Top" Width="75" Click="go_back"/>
 
     </Grid>
 </Page>

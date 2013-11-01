@@ -83,9 +83,9 @@ namespace Watchlist_app_windows
            
             
         }
-        void ShowHideDetails(object sender, RoutedEventArgs e)
+        void toFavorites(object sender, RoutedEventArgs e)
         {
-            MovieInfo Movie = (MovieInfo)dataGrid1.SelectedItem;      
+            FavoritesListData.EventHandler(currentMovie);
         }
         private void dataGrid1_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {

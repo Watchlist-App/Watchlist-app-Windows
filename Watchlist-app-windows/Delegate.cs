@@ -12,14 +12,18 @@ namespace Watchlist_app_windows
         public delegate void MyEvent(Movies myMovies);
         public static MyEvent EventHandler;
     }
-
     public static class MetaData
     {
         public delegate void MyEvent(Movie myMovies);
         public static MyEvent EventHandler;
     }
-
     public static class WatchListData
+    {
+        public delegate void MyEvent(Movie myMovies);
+        public static MyEvent EventHandler;
+    }
+
+    public static class FavoritesListData
     {
         public delegate void MyEvent(Movie myMovies);
         public static MyEvent EventHandler;

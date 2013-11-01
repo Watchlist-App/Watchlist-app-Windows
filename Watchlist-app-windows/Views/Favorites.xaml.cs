@@ -17,7 +17,6 @@ using System.Data;
 using System.Runtime.Serialization.Json;
 using System.Web.Script.Serialization;
 using Watchlist_app_windows.DataFetchers;
-using System.Windows.Controls;
 using System.Threading;
 using System.Windows.Forms;
 using Watchlist_app_windows.ViewControllers;
@@ -30,10 +29,12 @@ namespace Watchlist_app_windows
     /// </summary>
     public partial class Favorites : Page
     {
+        Movie currentMovie = new Movie();
+        public List<Movie> MyFavorites = new List<Movie> { };
+        int count;
         public Favorites()
         {
-           // Data.EventHandler = new Data.MyEvent(toDataGrid);
-            //InitializeComponent();
+            FavoritesListData.EventHandler = new FavoritesListData.MyEvent(toFavorites);
             InitializeComponent();
         }
 
@@ -43,25 +44,48 @@ namespace Watchlist_app_windows
             WindowsList Singleton = WindowsList.GetInstance();
             this.NavigationService.Navigate(Singleton.page1);
         }
-
-        public void toDataGrid(Movies myMovies)
+        public void toFavorites(Movie myMovie)
         {
-            if (dataGrid2.Dispatcher.Thread == Thread.CurrentThread)
+
+            MyFavorites.Add(myMovie);
+            toViewBox(MyFavorites[0]);
+        }
+        public void toViewBox(Movie myMovie)
+        {
+            currentMovie = myMovie;
+            if (TextBlock1.Dispatcher.Thread == Thread.CurrentThread)
             {
-                dataGrid2.ItemsSource = myMovies.watchlist;
-                dataGrid2.Items.Refresh();
+                Uri pictureUri = new Uri("http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w300" + myMovie.poster_path);
+                BitmapImage image = new BitmapImage(pictureUri);
+                picture.Source = image;
+                TextBlock1.Text = myMovie.overview;
+                TextBlock2.Text = myMovie.Title;
             }
             else
             {
-                dataGrid2.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(delegate()
+                TextBlock1.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(delegate()
                 {
-                    dataGrid2.ItemsSource = myMovies.watchlist;
-                    dataGrid2.Items.Refresh();
+
+                    Uri pictureUri = new Uri("http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w300" + myMovie.poster_path);
+                    BitmapImage image = new BitmapImage(pictureUri);
+                    picture.Source = image;
+                    TextBlock1.Text = myMovie.overview;
+                    TextBlock2.Text = myMovie.Title;
                 }));
+
             }
 
+
         }
-
-
+        private void go_back(object sender, RoutedEventArgs e)
+        {
+            if (count > 0)
+                toViewBox(MyFavorites[--count]);
+        }
+        private void go_forward(object sender, RoutedEventArgs e)
+        {
+            if (count < MyFavorites.Count - 1)
+                toViewBox(MyFavorites[++count]);
+        }
     }
 }
