@@ -50,7 +50,7 @@ namespace Watchlist_app_windows
             MyFavorites.Add(myMovie);
             toViewBox(MyFavorites[0]);
         }
-        public void toViewBox(Movie myMovie)
+        /*public void toViewBox(Movie myMovie)
         {
             currentMovie = myMovie;
             if (TextBlock1.Dispatcher.Thread == Thread.CurrentThread)
@@ -76,7 +76,7 @@ namespace Watchlist_app_windows
             }
 
 
-        }
+        }*/
         private void go_back(object sender, RoutedEventArgs e)
         {
             if (count > 0)
@@ -86,6 +86,29 @@ namespace Watchlist_app_windows
         {
             if (count < MyFavorites.Count - 1)
                 toViewBox(MyFavorites[++count]);
+        }
+        public void toViewBox(Movie myMovie)
+
+        {
+            Uri pictureUri = new Uri("http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w300" + myMovie.poster_path);
+            //Uri pictureUri = new Uri("faGq4raUDFEKODYHr9Us010N3TL.jpg");
+            BitmapImage image = new BitmapImage(pictureUri);
+            picture.Source = image;
+            //picture.Load();
+            TextBlock1.Text = myMovie.overview;
+            TextBlock2.Text = myMovie.Title;
+            if (myMovie.Watch_flag == 1)
+                TextBlock3.Text = "Seen";
+            else
+                TextBlock3.Text = null;
+            dataGrid1.ItemsSource = MyFavorites;
+            dataGrid1.Items.Refresh();
+
+        }
+        private void dataGrid1_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            Movie SelectedMovie = (Movie)dataGrid1.SelectedItem;
+            toViewBox(SelectedMovie);
         }
     }
 }

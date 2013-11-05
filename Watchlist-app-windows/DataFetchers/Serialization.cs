@@ -13,7 +13,6 @@ namespace Watchlist_app_windows.DataFetchers
         public Movies Serialization(string data)
         {
             Movies myMovies = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<Movies>(data);
-            //MessageBox.Show(myMovies);
             return myMovies;
         }
 

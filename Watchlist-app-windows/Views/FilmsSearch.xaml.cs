@@ -22,6 +22,7 @@ using Watchlist_app_windows.ViewControllers;
 using System.Windows.Markup;
 using System.ComponentModel;
 using System.Drawing;
+using System.Text.RegularExpressions;
 
 
 
@@ -34,12 +35,13 @@ namespace Watchlist_app_windows
     {
         Movie currentMovie = new Movie();
         public Watchlist()
-        {           
-            Data.EventHandler = new Data.MyEvent(toDataGrid);
+        {
+            Data.EventHandler = new Data.MyEvent(toDataGrid);       //это привязка делегата к методу (теперь Data ссылается на метод toDataGrid())
             MetaData.EventHandler = new MetaData.MyEvent(toViewBox);     
             InitializeComponent();
         }
 
+//================ обработчики нажатия конпок:
         private void GoToMain(object sender, RoutedEventArgs e)
         {
 
@@ -67,13 +69,13 @@ namespace Watchlist_app_windows
         }
         public void toDataGrid(Movies myMovies)
         {
-            if (dataGrid1.Dispatcher.Thread == Thread.CurrentThread)
+            if (dataGrid1.Dispatcher.Thread == Thread.CurrentThread)                //это проверка, к какому потоку принадлежат данные, которые мы пытаемся загнать в датагрид
             {
-                dataGrid1.ItemsSource = myMovies.results;
+                dataGrid1.ItemsSource = myMovies.results;                           //если поток тот же, в котором висит сам датагрид, все просто
                 dataGrid1.Items.Refresh();
             }
             else
-            {
+            {                                                                       //если нет, то системным делегатом обеспчеиваем доступ к данным между разными потоками    
                 dataGrid1.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(delegate()
                 {
                 dataGrid1.ItemsSource = myMovies.results;
@@ -134,8 +136,9 @@ namespace Watchlist_app_windows
         private void objImage_DownloadCompleted(object sender, EventArgs e)
         {
             JpegBitmapEncoder encoder = new JpegBitmapEncoder();
-            Guid photoID = System.Guid.NewGuid();
-            String photolocation = photoID.ToString() + ".jpg";  //file name           
+            Guid photoID = System.Guid.NewGuid();         
+            String photolocation = currentMovie.poster_path;  //file name 
+            photolocation = Regex.Replace(photolocation, "/", "");           
 
             encoder.Frames.Add(BitmapFrame.Create((BitmapImage)sender));
 
@@ -144,10 +147,10 @@ namespace Watchlist_app_windows
         }
         private void SearchTopRated(object sender, RoutedEventArgs e)
         {
-            Get request = new Get("http://api.themoviedb.org/3/movie/top_rated?api_key=86afaae5fbe574d49418485ca1e58803");
-            ThreadClass tc = new ThreadClass(request);
-            Thread searchThread = new Thread(new ThreadStart(tc.func));
-            searchThread.Start();
+            Get request = new Get("http://api.themoviedb.org/3/movie/top_rated?api_key=86afaae5fbe574d49418485ca1e58803");  //создаем новый запрос
+            ThreadClass tc = new ThreadClass(request);              //передаем его в качесве параметра в поток
+            Thread searchThread = new Thread(new ThreadStart(tc.func));     //тут выбираем, каой метод будет работать в потоке
+            searchThread.Start();                   //запускаем поток
 
         } 
         private void SearchUpcoming(object sender, RoutedEventArgs e)
@@ -176,9 +179,17 @@ namespace Watchlist_app_windows
             Thread searchThread = new Thread(new ThreadStart(tc.func));
             searchThread.Start();
         }
-        private void toFandangoFetcher(object sender, RoutedEventArgs e)
+        private void toFandangoFetcher(object sender, RoutedEventArgs e) // здесь должен быть переход к заказу билетов
         {
-            //переход к поиску билетов
+            ToFandango.EventHandler(currentMovie);
+            WindowsList Singleton = WindowsList.GetInstance();
+            this.NavigationService.Navigate(Singleton.page5);
+        }
+        private void toYoutube(object sender, RoutedEventArgs e)
+        {
+            ToYoutube.EventHandler(currentMovie);
+            WindowsList Singleton = WindowsList.GetInstance();
+            this.NavigationService.Navigate(Singleton.page7);
         }
 
 

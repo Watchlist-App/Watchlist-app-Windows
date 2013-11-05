@@ -83,6 +83,5 @@ namespace Watchlist_app_windows.DataFetchers
             return titleCinema;                 //возращаем справочник
         }
 
-     // public ObservableCollection<titleCinema> movieCall = new ObservableCollection<titleCinema>();
     }
 }

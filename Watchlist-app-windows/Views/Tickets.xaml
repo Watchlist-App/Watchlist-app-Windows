@@ -29,8 +29,22 @@
             </Button.Effect>
         </Button>
 
-        <DataGrid x:Name="dataGrid2" HorizontalAlignment="Left" Margin="53,61,0,0" VerticalAlignment="Top" Height="484" Width="782">
+        <DataGrid x:Name="dataGrid2" HorizontalAlignment="Left" Margin="53,61,0,0" VerticalAlignment="Top" Height="484" Width="642">
+            <DataGrid.Effect>
+                <DropShadowEffect/>
+            </DataGrid.Effect>
         </DataGrid>
+        <Image x:Name="picture" HorizontalAlignment="Left" Height="242" Margin="727,113,0,0" VerticalAlignment="Top" Width="233">
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
+        <TextBlock x:Name="TextBlock1" HorizontalAlignment="Left" Margin="727,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="235" Width="274" FontSize="14"/>
+        <TextBlock  x:Name="TextBlock2" HorizontalAlignment="Left" Margin="727,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="245" FontSize="22">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
 
     </Grid>
 </Page>

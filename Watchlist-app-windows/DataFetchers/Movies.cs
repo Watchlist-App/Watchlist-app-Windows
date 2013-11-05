@@ -18,7 +18,7 @@ namespace Watchlist_app_windows.DataFetchers
 
     }
 
-    public class MovieInfo
+    public class MovieInfo                          
     {
 
         public MovieInfo()

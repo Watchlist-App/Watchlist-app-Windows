@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -34,29 +35,26 @@ namespace Watchlist_app_windows
             WatchListData.EventHandler = new WatchListData.MyEvent(toWatchlist);
         }
 
+//================ обработчики нажатия конпок:
         private void ViewProfile(object sender, RoutedEventArgs e)
         {
             WindowsList Singleton = WindowsList.GetInstance();
             this.NavigationService.Navigate(Singleton.page2);
         }
-
         private void ViewWatchlist(object sender, RoutedEventArgs e)
         {
             WindowsList Singleton = WindowsList.GetInstance();
             this.NavigationService.Navigate(Singleton.page3);
         }
-
         private void ViewFavorites(object sender, RoutedEventArgs e)
         {
             WindowsList Singleton = WindowsList.GetInstance();
             this.NavigationService.Navigate(Singleton.page4);
         }
-
         private void exit(object sender, RoutedEventArgs e)
         {          
             Environment.Exit(0);
         }
-
         private void Fandango_fetch(object sender, RoutedEventArgs e)
         {
             WindowsList Singleton = WindowsList.GetInstance();
@@ -69,14 +67,16 @@ namespace Watchlist_app_windows
         }
         private void YoutubeFetcher(object sender, RoutedEventArgs e)
         {
-          //  WindowsList Singleton = WindowsList.GetInstance();
-           // this.NavigationService.Navigate(Singleton.page7);
+            WindowsList Singleton = WindowsList.GetInstance();
+            this.NavigationService.Navigate(Singleton.page7);
         }
         public void toViewBox(Movie myMovie)
         {         
                     Uri pictureUri = new Uri("http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w300" + myMovie.poster_path);
+                    //Uri pictureUri = new Uri("faGq4raUDFEKODYHr9Us010N3TL.jpg");
                     BitmapImage image = new BitmapImage(pictureUri);
-                    picture.Source = image;
+                    picture.Source = image;                      
+                    //picture.Load();
                     TextBlock1.Text = myMovie.overview;
                     TextBlock2.Text = myMovie.Title;
                     if (myMovie.Watch_flag == 1)

@@ -75,6 +75,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Views\Youtube.xaml.cs">
+      <DependentUpon>Youtube.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\Amazon.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -103,9 +106,9 @@
     <Compile Include="DataFetchers\FandangoFetcher.cs" />
     <Compile Include="DataFetchers\Movies.cs" />
     <Compile Include="DataFetchers\Serialization.cs" />
-    <Compile Include="Threading.cs" />
+    <Compile Include="ViewControllers\Threading.cs" />
     <Compile Include="ViewControllers\dataGridController.cs" />
-    <Compile Include="Delegate.cs" />
+    <Compile Include="ViewControllers\Delegate.cs" />
     <Compile Include="Views\Amazon.xaml.cs">
       <DependentUpon>Amazon.xaml</DependentUpon>
     </Compile>
@@ -132,11 +135,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Watchlist.xaml">
+    <Page Include="Views\FilmsSearch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Youtube.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -150,8 +157,8 @@
     <Compile Include="Views\Tickets.xaml.cs">
       <DependentUpon>Tickets.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Watchlist.xaml.cs">
-      <DependentUpon>Watchlist.xaml</DependentUpon>
+    <Compile Include="Views\FilmsSearch.xaml.cs">
+      <DependentUpon>FilmsSearch.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
