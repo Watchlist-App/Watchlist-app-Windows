@@ -41,7 +41,6 @@ namespace Watchlist_app_windows
             InitializeComponent();
         }
 
-//================ обработчики нажатия конпок:
         private void GoToMain(object sender, RoutedEventArgs e)
         {
 
@@ -95,7 +94,7 @@ namespace Watchlist_app_windows
             MovieInfo Movie = (MovieInfo)dataGrid1.SelectedItem;
             if (Movie != null)
             {
-                Get request = new Get("http://api.themoviedb.org/3/movie/" + Movie.ID + "?api_key=86afaae5fbe574d49418485ca1e58803");
+                Get request = new Get("http://api.themoviedb.org/3/movie/" + Movie.ID + "?api_key=86afaae5fbe574d49418485ca1e58803&append_to_response=releases,trailers");               
                 ThreadClass tc = new ThreadClass(request);
                 Thread searchThread = new Thread(new ThreadStart(tc.func2));
                 searchThread.Start();
@@ -104,7 +103,7 @@ namespace Watchlist_app_windows
         }
         public void toViewBox(Movie myMovie)
         {
-            currentMovie = myMovie;
+            currentMovie = myMovie;          
             if (TextBlock1.Dispatcher.Thread == Thread.CurrentThread)
             {                
                 Uri pictureUri = new Uri("http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w300" + myMovie.poster_path);
@@ -120,7 +119,7 @@ namespace Watchlist_app_windows
                     
                     Uri pictureUri = new Uri("http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w300" + myMovie.poster_path);              
                     BitmapImage image = new BitmapImage(pictureUri);                                       
-                    image.DownloadCompleted += objImage_DownloadCompleted;
+                   // image.DownloadCompleted += objImage_DownloadCompleted;
                     picture.Source = image;
                     TextBlock1.Text = myMovie.overview;
                     TextBlock2.Text = myMovie.Title;

@@ -27,12 +27,8 @@ namespace Watchlist_app_windows.DataFetchers
         }
         public string ID { get; set; }
         public string Title { get; set; }
-        public string Release_Date { get; set; }
-
-        //public string Popularity { get; set; }   
+        public string Release_Date { get; set; }     
         public string Vote_Average { get; set; }
-
-        //public string owerview { get; set; }
 
         public ObservableCollection<MovieInfo> movieCall = new ObservableCollection<MovieInfo>();
 
@@ -41,6 +37,7 @@ namespace Watchlist_app_windows.DataFetchers
     }
 
 }
+
 
 public class Movie
 {
@@ -53,6 +50,8 @@ public class Movie
     public string poster_path { get; set; }
 
     public int Watch_flag;
+
+    public string source { get; set; }
 
     public string id { get; set; }
 

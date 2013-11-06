@@ -19,7 +19,6 @@ namespace Watchlist_app_windows
         }
 
         public Get request;                     //собственно класс запроса         
-
         public void func()                        //метод получения предварительной инфы о фильмах для дата грида
         {
             request.GetInfo();                      //получени инфы запросом из интернета
@@ -27,7 +26,6 @@ namespace Watchlist_app_windows
             Movies myMovies = a.Serialization(request.GetInfo());   //сериализация полученных данных  (Movies содержит коллекцию)
             Data.EventHandler(myMovies);             //через делегат передаем полученные данные в датагрид
         }
-
         public void func2()                     //метод получения дополнительной инфы по фильму (постер, описание)
         {
             request.GetInfo();                     
@@ -36,7 +34,6 @@ namespace Watchlist_app_windows
             MetaData.EventHandler(myMovie);   
         }
     }
-
     class ThreadClassFandango                           //класс нового потока
     {
         public string Film;
@@ -52,8 +49,7 @@ namespace Watchlist_app_windows
 
             Dictionary<string, string> titleCinema = new Dictionary<string, string>();
 
-            string titleView = "";
-            string titleViewEnd = "";          
+            string titleView = "";      
 
             titleCinema = FandangoFetcher.getShowTime(Film, zip);
 

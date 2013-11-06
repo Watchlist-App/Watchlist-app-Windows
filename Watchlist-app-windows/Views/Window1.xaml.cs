@@ -67,6 +67,7 @@ namespace Watchlist_app_windows
         }
         private void YoutubeFetcher(object sender, RoutedEventArgs e)
         {
+            ToYoutube.EventHandler(MyWatchList[count]);
             WindowsList Singleton = WindowsList.GetInstance();
             this.NavigationService.Navigate(Singleton.page7);
         }

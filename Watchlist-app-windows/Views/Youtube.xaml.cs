@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
+using Watchlist_app_windows.DataFetchers;
+
+
 
 namespace Watchlist_app_windows.Views
 {
@@ -26,17 +29,20 @@ namespace Watchlist_app_windows.Views
         {
             ToYoutube.EventHandler = new ToYoutube.MyEvent(toViewBox);          
             InitializeComponent();
-            MyBrowser.Source = new Uri("http://www.google.com");
         }
         private void GoToMain(object sender, RoutedEventArgs e)
         {
-
+            
             WindowsList Singleton = WindowsList.GetInstance();
             this.NavigationService.Navigate(Singleton.page1);
         }
-
         public void toViewBox(Movie myMovie)
         {
+           // string response_string;
+            //YoutubeFetcher temp = new YoutubeFetcher();
+           // response_string = temp.ExecuteYoutubeFetch("Terminator");
+            MyBrowser.Source = new Uri("http://www.youtube.com/v/" + myMovie.source);
+           
             currentMovie = myMovie;
             if (TextBlock1.Dispatcher.Thread == Thread.CurrentThread)
             {
@@ -60,6 +66,16 @@ namespace Watchlist_app_windows.Views
 
             }
 
+        }
+        private void toFandangoFetcher(object sender, RoutedEventArgs e)
+        {
+            ToFandango.EventHandler(currentMovie);
+            WindowsList Singleton = WindowsList.GetInstance();
+            this.NavigationService.Navigate(Singleton.page5);
+        }
+        private void ToWatchlist(object sender, RoutedEventArgs e)
+        {
+            WatchListData.EventHandler(currentMovie);
         }
 
     }

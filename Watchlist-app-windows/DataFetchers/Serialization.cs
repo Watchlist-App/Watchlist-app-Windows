@@ -18,7 +18,9 @@ namespace Watchlist_app_windows.DataFetchers
 
         public Movie Serialization_owerview(string data)
         {
+            Int32 tmp = data.IndexOf("source");
             Movie myMovies = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<Movie>(data);
+            myMovies.source = data.Substring(tmp+9, 11);
             return myMovies;
         }
     }

@@ -21,7 +21,7 @@ namespace Watchlist_app_windows
     public partial class MainWindow : NavigationWindow
     {
         public MainWindow()
-        {
+        {           
             WindowsList Singleton = WindowsList.GetInstance();
             this.NavigationService.Navigate(Singleton.page1);
         }

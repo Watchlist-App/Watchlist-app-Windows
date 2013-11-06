@@ -75,6 +75,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataFetchers\YoutubeFetcher.cs" />
     <Compile Include="Views\Youtube.xaml.cs">
       <DependentUpon>Youtube.xaml</DependentUpon>
     </Compile>
