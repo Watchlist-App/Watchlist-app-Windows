@@ -27,7 +27,7 @@ namespace Watchlist_app_windows
         DataSet Movie = new DataSet();
 
         public List<Movie> MyWatchList = new List<Movie> { };       
-        int count;
+        int count = -1;
 
         public Window1()
         {
@@ -67,7 +67,8 @@ namespace Watchlist_app_windows
         }
         private void YoutubeFetcher(object sender, RoutedEventArgs e)
         {
-            ToYoutube.EventHandler(MyWatchList[count]);
+            if (count != -1)
+                ToYoutube.EventHandler(MyWatchList[count]);
             WindowsList Singleton = WindowsList.GetInstance();
             this.NavigationService.Navigate(Singleton.page7);
         }

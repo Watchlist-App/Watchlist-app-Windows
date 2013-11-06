@@ -27,20 +27,20 @@ namespace Watchlist_app_windows.Views
         Movie currentMovie = new Movie();
         public Youtube()
         {
-            ToYoutube.EventHandler = new ToYoutube.MyEvent(toViewBox);          
+            ToYoutube.EventHandler = new ToYoutube.MyEvent(toViewBox);
             InitializeComponent();
         }
         private void GoToMain(object sender, RoutedEventArgs e)
-        {
-            MyBrowser.Dispose();
+        {            
             WindowsList Singleton = WindowsList.GetInstance();
-            this.NavigationService.Navigate(Singleton.page1);
+            this.NavigationService.Navigate(Singleton.page3);           
         }
         public void toViewBox(Movie myMovie)
         {
-            MyBrowser.Source = new Uri("http://www.youtube.com/v/" + myMovie.source);
-           
-            currentMovie = myMovie;
+            currentMovie = myMovie;        
+          
+            this.MyBrowser.Source = new Uri("http://www.youtube.com/v/" + currentMovie.source);          
+            
             if (TextBlock1.Dispatcher.Thread == Thread.CurrentThread)
             {
                 Uri pictureUri = new Uri("http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w300" + myMovie.poster_path);
