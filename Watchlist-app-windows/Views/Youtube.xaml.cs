@@ -32,15 +32,12 @@ namespace Watchlist_app_windows.Views
         }
         private void GoToMain(object sender, RoutedEventArgs e)
         {
-            
+            MyBrowser.Dispose();
             WindowsList Singleton = WindowsList.GetInstance();
             this.NavigationService.Navigate(Singleton.page1);
         }
         public void toViewBox(Movie myMovie)
         {
-           // string response_string;
-            //YoutubeFetcher temp = new YoutubeFetcher();
-           // response_string = temp.ExecuteYoutubeFetch("Terminator");
             MyBrowser.Source = new Uri("http://www.youtube.com/v/" + myMovie.source);
            
             currentMovie = myMovie;

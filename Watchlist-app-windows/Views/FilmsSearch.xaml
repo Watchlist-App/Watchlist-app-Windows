@@ -66,13 +66,13 @@
             </DataGrid.Effect>
 
         </DataGrid>
-        <Image x:Name="picture" HorizontalAlignment="Left" Height="242" Margin="690,126,0,0" VerticalAlignment="Top" Width="233">
+        <Image x:Name="picture" HorizontalAlignment="Left" Height="242" Margin="690,137,0,0" VerticalAlignment="Top" Width="233">
             <Image.Effect>
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <TextBlock x:Name="TextBlock1" HorizontalAlignment="Left" Margin="690,384,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="235" Grid.RowSpan="4" Width="274" FontSize="14"/>
-        <TextBlock  x:Name="TextBlock2" HorizontalAlignment="Left" Margin="690,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="245" FontSize="22">
+        <TextBlock x:Name="TextBlock1" HorizontalAlignment="Left" Margin="690,393,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="235" Grid.RowSpan="4" Width="274" FontSize="14"/>
+        <TextBlock  x:Name="TextBlock2" HorizontalAlignment="Left" Margin="690,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="265" FontSize="22">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
