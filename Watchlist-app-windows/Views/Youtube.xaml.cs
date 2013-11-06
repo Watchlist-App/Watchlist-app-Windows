@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -27,19 +28,23 @@ namespace Watchlist_app_windows.Views
         Movie currentMovie = new Movie();
         public Youtube()
         {
-            ToYoutube.EventHandler = new ToYoutube.MyEvent(toViewBox);
+            ToYoutube.EventHandler = new ToYoutube.MyEvent(toViewBox);           
             InitializeComponent();
         }
         private void GoToMain(object sender, RoutedEventArgs e)
-        {            
-            WindowsList Singleton = WindowsList.GetInstance();
-            this.NavigationService.Navigate(Singleton.page3);           
+        {
+            MyBrowser.Source = new Uri("http://www.google.by/");
+            MyBrowser.Refresh();
+            //Thread.Sleep(500);
+            //System.Windows.Forms.MessageBox.Show("go back");
+            WindowsList Singleton = WindowsList.GetInstance(); 
+            this.NavigationService.GoBack();  
         }
         public void toViewBox(Movie myMovie)
         {
-            currentMovie = myMovie;        
-          
-            this.MyBrowser.Source = new Uri("http://www.youtube.com/v/" + currentMovie.source);          
+            currentMovie = myMovie;
+
+            MyBrowser.Source = new Uri("http://www.youtube.com/v/" + currentMovie.source);
             
             if (TextBlock1.Dispatcher.Thread == Thread.CurrentThread)
             {
@@ -52,8 +57,7 @@ namespace Watchlist_app_windows.Views
             else
             {
                 TextBlock1.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(delegate()
-                {
-
+                {                    
                     Uri pictureUri = new Uri("http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w300" + myMovie.poster_path);
                     BitmapImage image = new BitmapImage(pictureUri);
                     picture.Source = image;
@@ -74,6 +78,7 @@ namespace Watchlist_app_windows.Views
         {
             WatchListData.EventHandler(currentMovie);
         }
+
 
     }
 }

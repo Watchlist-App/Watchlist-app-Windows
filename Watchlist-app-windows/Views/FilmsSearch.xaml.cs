@@ -49,6 +49,7 @@ namespace Watchlist_app_windows
         }
         private void SearchPopular(object sender, RoutedEventArgs e)
         {
+            Status.Text = "Searching";   
             Get request = new Get("http://api.themoviedb.org/3/movie/popular?api_key=86afaae5fbe574d49418485ca1e58803");
             ThreadClass tc = new ThreadClass(request);
             Thread searchThread = new Thread(new ThreadStart(tc.func));
@@ -56,8 +57,10 @@ namespace Watchlist_app_windows
           
         }
         private void SearchByTitle(object sender, RoutedEventArgs e)
-        {           
+        {
+            Status.Text = "Searching";     
             string temp = searchBox.Text;
+            Title.Text = "Searching: " +  searchBox.Text;
             if (temp != "")
             {
                 Get request = new Get("http://api.themoviedb.org/3/search/movie?query=" + temp + "&api_key=86afaae5fbe574d49418485ca1e58803");
@@ -78,11 +81,10 @@ namespace Watchlist_app_windows
                 dataGrid1.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(delegate()
                 {
                 dataGrid1.ItemsSource = myMovies.results;
-                dataGrid1.Items.Refresh();            
+                dataGrid1.Items.Refresh();
+                Status.Text = "Ready";
             }));
-            }
-           
-            
+            }                     
         }
         void toFavorites(object sender, RoutedEventArgs e)
         {
@@ -102,7 +104,7 @@ namespace Watchlist_app_windows
             
         }
         public void toViewBox(Movie myMovie)
-        {
+        {           
             currentMovie = myMovie;          
             if (TextBlock1.Dispatcher.Thread == Thread.CurrentThread)
             {                
@@ -146,23 +148,27 @@ namespace Watchlist_app_windows
         }
         private void SearchTopRated(object sender, RoutedEventArgs e)
         {
+            Title.Text = "Top Rated movies:";
+            Status.Text = "Searching";
             Get request = new Get("http://api.themoviedb.org/3/movie/top_rated?api_key=86afaae5fbe574d49418485ca1e58803");  //создаем новый запрос
             ThreadClass tc = new ThreadClass(request);              //передаем его в качесве параметра в поток
             Thread searchThread = new Thread(new ThreadStart(tc.func));     //тут выбираем, каой метод будет работать в потоке
             searchThread.Start();                   //запускаем поток
-
+            
         } 
         private void SearchUpcoming(object sender, RoutedEventArgs e)
         {
+            Title.Text = "Upcoming movies:";
+            Status.Text = "Searching";
             Get request = new Get("http://api.themoviedb.org/3/movie/upcoming?api_key=86afaae5fbe574d49418485ca1e58803");
             ThreadClass tc = new ThreadClass(request);
             Thread searchThread = new Thread(new ThreadStart(tc.func));
             searchThread.Start();
-
-
         }
         private void Searchsimilar_movies(object sender, RoutedEventArgs e)
         {
+            Title.Text = "Similar to: " + currentMovie.Title;
+            Status.Text = "Searching";
             if (currentMovie.id != "empty")
             {
                 Get request = new Get("http://api.themoviedb.org/3/movie/" + currentMovie.id + "/similar_movies?api_key=86afaae5fbe574d49418485ca1e58803");
@@ -173,13 +179,15 @@ namespace Watchlist_app_windows
         }
         private void SearchNowPlaying(object sender, RoutedEventArgs e)
         {
+            Title.Text = "Now playing ";
+            Status.Text = "Searching";
             Get request = new Get("http://api.themoviedb.org/3/movie/now_playing?api_key=86afaae5fbe574d49418485ca1e58803");
             ThreadClass tc = new ThreadClass(request);
             Thread searchThread = new Thread(new ThreadStart(tc.func));
             searchThread.Start();
         }
         private void toFandangoFetcher(object sender, RoutedEventArgs e) // здесь должен быть переход к заказу билетов
-        {
+        {           
             ToFandango.EventHandler(currentMovie);
             WindowsList Singleton = WindowsList.GetInstance();
             this.NavigationService.Navigate(Singleton.page5);

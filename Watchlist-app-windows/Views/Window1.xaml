@@ -13,9 +13,7 @@
 
 
     <Grid RenderTransformOrigin="0.502,0.989">
-        <Grid.Effect>
-            <DropShadowEffect/>
-        </Grid.Effect>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="771*"/>
             <RowDefinition Height="29*"/>
@@ -47,30 +45,70 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <Button Content="Buy Tickets" HorizontalAlignment="Left" Margin="54,224,0,0" VerticalAlignment="Top" Width="106" RenderTransformOrigin="-0.304,-0.057" Height="38" Click="Fandango_fetch"/>
-        <Button Content="Amazon" HorizontalAlignment="Left" Margin="54,290,0,0" VerticalAlignment="Top" Width="106" RenderTransformOrigin="-0.304,-0.057" Height="38" Click="AmazonFetcher"/>
-        <Button Content="Watch &#xD;&#xA;Trailers" HorizontalAlignment="Left" Margin="54,363,0,0" VerticalAlignment="Top" Width="106" RenderTransformOrigin="-0.304,-0.057" Height="38" Click="YoutubeFetcher"/>
-        <Image x:Name="picture" HorizontalAlignment="Left" Height="242" Margin="299,164,0,0" VerticalAlignment="Top" Width="233">
+        <Button Content="Buy Tickets" HorizontalAlignment="Left" Margin="54,224,0,0" VerticalAlignment="Top" Width="106" RenderTransformOrigin="-0.304,-0.057" Height="38" Click="Fandango_fetch">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button Content="Amazon" HorizontalAlignment="Left" Margin="54,290,0,0" VerticalAlignment="Top" Width="106" RenderTransformOrigin="-0.304,-0.057" Height="38" Click="AmazonFetcher">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button Content="Watch &#xD;&#xA;Trailers" HorizontalAlignment="Left" Margin="54,363,0,0" VerticalAlignment="Top" Width="106" RenderTransformOrigin="-0.304,-0.057" Height="38" Click="YoutubeFetcher">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Image x:Name="picture" HorizontalAlignment="Left" Height="202" Margin="228,126,0,0" VerticalAlignment="Top" Width="167">
             <Image.Effect>
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <TextBlock  x:Name="TextBlock2" HorizontalAlignment="Left" Margin="299,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="357" FontSize="22">
+        <TextBlock  x:Name="TextBlock2" HorizontalAlignment="Left" Margin="228,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="446" FontSize="22">
         </TextBlock>
         <TextBlock  x:Name="TextBlock3" HorizontalAlignment="Left" Margin="732,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="113" FontSize="22">
         </TextBlock>
-        <TextBlock  x:Name="TextBlock1" HorizontalAlignment="Left" Margin="537,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="196" Width="247"/>
-
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="388" Margin="203,80,0,0" VerticalAlignment="Top" Width="667"/>
-        <Button  Content="&lt;&lt;" HorizontalAlignment="Left" Margin="203,494,0,0" VerticalAlignment="Top" Width="75" Click="go_back"/>
-        <Button  Content="&gt;&gt;" HorizontalAlignment="Left" Margin="363,494,0,0" VerticalAlignment="Top" Width="75" Click="go_forward"/>
-        <Button Content="Remove" HorizontalAlignment="Left" Margin="795,494,0,0" VerticalAlignment="Top" Width="75" Click="remove"/>
-        <Button Content="Watched" HorizontalAlignment="Left" Margin="655,494,0,0" VerticalAlignment="Top" Width="75" Click="wasWatched"/>
+        <TextBlock  x:Name="TextBlock1" HorizontalAlignment="Left" Margin="228,351,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="117" Width="642" FontSize="14"/>
+        <Button  Content="&lt;&lt;" HorizontalAlignment="Left" Margin="203,494,0,0" VerticalAlignment="Top" Width="75" Click="go_back">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button  Content="&gt;&gt;" HorizontalAlignment="Left" Margin="363,494,0,0" VerticalAlignment="Top" Width="75" Click="go_forward">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button Content="Remove" HorizontalAlignment="Left" Margin="795,494,0,0" VerticalAlignment="Top" Width="75" Click="remove">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button Content="Watched" HorizontalAlignment="Left" Margin="655,494,0,0" VerticalAlignment="Top" Width="75" Click="wasWatched">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
         <Label Content="Current Watchlist" HorizontalAlignment="Left" Margin="203,46,0,0" VerticalAlignment="Top" Width="235" FontSize="18"/>
 
         <DataGrid x:Name="dataGrid1" HorizontalAlignment="Left" Margin="893,80,0,0" VerticalAlignment="Top" Height="388" Width="86" GridLinesVisibility="None" SelectionChanged="dataGrid1_SelectionChanged" >
+            <DataGrid.Effect>
+                <DropShadowEffect/>
+            </DataGrid.Effect>
 
         </DataGrid>
+        <TextBlock x:Name="date" HorizontalAlignment="Left" Margin="400,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="26" Width="227"/>
+        <TextBlock x:Name="budget" HorizontalAlignment="Left" Margin="400,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Width="227"/>
+        <TextBlock x:Name="revenue" HorizontalAlignment="Left" Margin="400,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Width="227"/>
+        <TextBlock x:Name="runtime" HorizontalAlignment="Left" Margin="400,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Width="227"/>
+        <TextBlock x:Name="rating" HorizontalAlignment="Left" Margin="400,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Width="227"/>
+        
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="388" Margin="203,80,0,0" VerticalAlignment="Top" Width="685">
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+        </Border>
 
     </Grid>
 </Page>

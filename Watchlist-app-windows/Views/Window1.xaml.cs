@@ -68,9 +68,11 @@ namespace Watchlist_app_windows
         private void YoutubeFetcher(object sender, RoutedEventArgs e)
         {
             if (count != -1)
+            {
                 ToYoutube.EventHandler(MyWatchList[count]);
-            WindowsList Singleton = WindowsList.GetInstance();
-            this.NavigationService.Navigate(Singleton.page7);
+                WindowsList Singleton = WindowsList.GetInstance();
+                this.NavigationService.Navigate(Singleton.page7);
+            }          
         }
         public void toViewBox(Movie myMovie)
         {         
@@ -81,6 +83,12 @@ namespace Watchlist_app_windows
                     //picture.Load();
                     TextBlock1.Text = myMovie.overview;
                     TextBlock2.Text = myMovie.Title;
+                    date.Text = "Release Date: " + myMovie.Release_Date;                   
+                    budget.Text = "Budget: " + myMovie.budget +"$";
+                    revenue.Text = "Revenue: " + myMovie.revenue + "$";
+                    runtime.Text = "Runtime: " + myMovie.runtime;
+                    rating.Text = "Rating: " + myMovie.Vote_Average;
+
                     if (myMovie.Watch_flag == 1)
                         TextBlock3.Text = "Seen";
                     else
@@ -90,8 +98,8 @@ namespace Watchlist_app_windows
     
         }
         public void toWatchlist(Movie myMovie)
-        {   
-        
+        {
+            count = 0;
             MyWatchList.Add(myMovie);
             toViewBox(MyWatchList[0]);                     
         }

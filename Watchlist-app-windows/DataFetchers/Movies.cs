@@ -50,9 +50,13 @@ public class Movie
     public string poster_path { get; set; }
 
     public int Watch_flag;
-
+    public string Release_Date { get; set; }   
     public string source { get; set; }
-
+    public string budget { get; set; }
+   // public string genres { get; set; }
+    public string runtime { get; set; }
+    public string Vote_Average { get; set; }
+    public string revenue { get; set; }
     public string id { get; set; }
 
     public ObservableCollection<Movie> movieCall = new ObservableCollection<Movie>();

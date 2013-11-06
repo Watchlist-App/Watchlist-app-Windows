@@ -37,7 +37,7 @@ namespace Watchlist_app_windows
         {
 
             WindowsList Singleton = WindowsList.GetInstance();
-            this.NavigationService.Navigate(Singleton.page1);
+            this.NavigationService.GoBack(); 
         }
         public void startSearch(Movie MovieToSearch)
         {
