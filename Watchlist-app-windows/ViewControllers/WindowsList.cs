@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Watchlist_app_windows.Views;
+
 
 namespace Watchlist_app_windows
 {
@@ -14,6 +16,8 @@ namespace Watchlist_app_windows
         private Watchlist pag3;
         private Favorites pag4;
         private Tickets pag5;
+        private Amazon pag6;
+        private Youtube pag7;
         private WindowsList()
         {
 
@@ -22,6 +26,8 @@ namespace Watchlist_app_windows
             pag3 = new Watchlist();
             pag4 = new Favorites();
             pag5 = new Tickets();
+            pag6 = new Amazon();
+            pag7 = new Youtube();
         }
         public static WindowsList GetInstance()
         {
@@ -53,6 +59,18 @@ namespace Watchlist_app_windows
         {
             get { return pag5; }
         }
+
+        public Amazon page6
+        {
+            get { return pag6; }
+        }
+
+        public Youtube page7
+        {
+            get { return pag7; }
+        }
+
+        
     }
 }
 
