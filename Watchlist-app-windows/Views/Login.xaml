@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d"
-	Title="Login" Height="600" Width="800">
+	Title="Login" Height="800" Width="1024">
 
     <Grid>
         <Button Content="Create Now" HorizontalAlignment="Left" Margin="592,51,0,0" VerticalAlignment="Top" Width="98" RenderTransformOrigin="0.213,0" Click="Button_Click" >
@@ -29,7 +29,7 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <Label Content="Don't gave account?" HorizontalAlignment="Left" Margin="442,48,0,0" VerticalAlignment="Top"/>
+        <Label Content="Don't have account?" HorizontalAlignment="Left" Margin="442,48,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>
