@@ -22,8 +22,10 @@ namespace Watchlist_app_windows.Views
     public partial class Login : Page
     {
         public Login()
-        {
+        {           
             InitializeComponent();
+            this.WindowHeight = 240;
+            this.WindowWidth = 480; 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

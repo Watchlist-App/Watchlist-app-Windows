@@ -32,6 +32,8 @@ namespace Watchlist_app_windows
         public Window1()
         {
             InitializeComponent();
+            this.WindowHeight = 800;
+            this.WindowWidth = 1024;
             WatchListData.EventHandler = new WatchListData.MyEvent(toWatchlist);
         }
 

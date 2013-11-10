@@ -24,6 +24,8 @@ namespace Watchlist_app_windows.Views
         public Registration()
         {
             InitializeComponent();
+            this.WindowHeight = 320;
+            this.WindowWidth = 480; 
         }     
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
