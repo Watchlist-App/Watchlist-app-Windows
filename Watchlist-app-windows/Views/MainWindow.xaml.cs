@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Watchlist_app_windows.DataFetchers;
 
 namespace Watchlist_app_windows
 {
@@ -23,7 +24,7 @@ namespace Watchlist_app_windows
         public MainWindow()
         {           
             WindowsList Singleton = WindowsList.GetInstance();
-            this.NavigationService.Navigate(Singleton.page1);
+            this.NavigationService.Navigate(Singleton.page9);
         }
     }
 }

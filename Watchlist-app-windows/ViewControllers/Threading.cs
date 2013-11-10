@@ -21,14 +21,14 @@ namespace Watchlist_app_windows
         public Get request;                     //собственно класс запроса         
         public void func()                        //метод получения предварительной инфы о фильмах для дата грида
         {
-            request.GetInfo();                      //получени инфы запросом из интернета
+            //request.GetInfo();                      //получени инфы запросом из интернета
             Ser a = new Ser();                      
             Movies myMovies = a.Serialization(request.GetInfo());   //сериализация полученных данных  (Movies содержит коллекцию)
             Data.EventHandler(myMovies);             //через делегат передаем полученные данные в датагрид
         }
         public void func2()                     //метод получения дополнительной инфы по фильму (постер, описание)
         {
-            request.GetInfo();                     
+            //request.GetInfo();                     
             Ser a = new Ser();
             Movie myMovie = a.Serialization_owerview(request.GetInfo());    //Movie - инфа о конкретном фильме        
             MetaData.EventHandler(myMovie);   

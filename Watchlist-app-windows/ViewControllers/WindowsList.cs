@@ -18,6 +18,8 @@ namespace Watchlist_app_windows
         private Tickets pag5;
         private Amazon pag6;
         private Youtube pag7;
+        private Registration pag8;
+        private Login pag9;
         private WindowsList()
         {
 
@@ -28,6 +30,8 @@ namespace Watchlist_app_windows
             pag5 = new Tickets();
             pag6 = new Amazon();
             pag7 = new Youtube();
+            pag8 = new Registration();
+            pag9 = new Login();
         }
         public static WindowsList GetInstance()
         {
@@ -70,6 +74,15 @@ namespace Watchlist_app_windows
             get { return pag7; }
         }
 
+        public Registration page8
+        {
+            get { return pag8; }
+        }
+
+        public Login page9
+        {
+            get { return pag9; }
+        }
         
     }
 }

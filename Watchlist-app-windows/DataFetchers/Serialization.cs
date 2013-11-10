@@ -23,5 +23,13 @@ namespace Watchlist_app_windows.DataFetchers
             myMovies.source = data.Substring(tmp+9, 11);
             return myMovies;
         }
+
+        public User Serialization_User(string data)
+        {        
+            data = data.Replace('[', ' ');
+            data = data.Replace(']', ' ');
+            User CurrentUser = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<User>(data);
+            return CurrentUser;
+        }
     }
 }
