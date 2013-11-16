@@ -8,6 +8,7 @@ using System.Runtime.Serialization;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
 
+
 namespace Watchlist_app_windows.DataFetchers
 {
 

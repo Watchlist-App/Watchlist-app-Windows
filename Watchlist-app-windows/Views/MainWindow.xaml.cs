@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Watchlist_app_windows.DataFetchers;
 
+
 namespace Watchlist_app_windows
 {
     /// <summary>

@@ -17,11 +17,7 @@
                 <DropShadowEffect/>
             </TextBox.Effect>
         </TextBox>
-        <TextBox x:Name="Pass" HorizontalAlignment="Left" Height="23" Margin="33,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
-            <TextBox.Effect>
-                <DropShadowEffect/>
-            </TextBox.Effect>
-        </TextBox>
+       
         <Label Content="User Name" HorizontalAlignment="Left" Margin="178,33,0,0" VerticalAlignment="Top"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="178,78,0,0" VerticalAlignment="Top"/>
         <Button Content="Login" HorizontalAlignment="Left" Margin="272,34,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1">
@@ -30,6 +26,11 @@
             </Button.Effect>
         </Button>
         <Label Content="Don't have account?" HorizontalAlignment="Left" Margin="35,131,0,0" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="Pass" HorizontalAlignment="Left" Margin="33,86,0,0" VerticalAlignment="Top" Width="120">
+            <PasswordBox.Effect>
+                <DropShadowEffect/>
+            </PasswordBox.Effect>
+        </PasswordBox>
 
     </Grid>
 </Page>

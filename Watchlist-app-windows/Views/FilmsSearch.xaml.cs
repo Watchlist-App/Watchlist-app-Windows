@@ -38,7 +38,7 @@ namespace Watchlist_app_windows
         public Watchlist()
         {
             Data.EventHandler = new Data.MyEvent(toDataGrid);      
-            MetaData.EventHandler = new MetaData.MyEvent(toViewBox);     
+            MetaData.EventHandler = new MetaData.MyEvent(toViewBox);
             InitializeComponent();
         }
 
@@ -210,8 +210,9 @@ namespace Watchlist_app_windows
                 ThreadClass tc = new ThreadClass(request);
                 Thread searchThread = new Thread(new ThreadStart(tc.func));
                 searchThread.Start();
+                SearchTextBorder.Width += 10;  //temporary
             }            
-        }
+        }        
 
     }
 }

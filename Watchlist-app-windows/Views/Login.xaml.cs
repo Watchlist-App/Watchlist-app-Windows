@@ -36,20 +36,20 @@ namespace Watchlist_app_windows.Views
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            string pass = Pass.Password;
             if (Name.Text == "test")
             {
                 WindowsList Singleton = WindowsList.GetInstance();
                 this.NavigationService.Navigate(Singleton.page1);
 
             }
-            if ((Name.Text != "") && (Pass.Text != ""))
+            if ((Name.Text != "") && (pass != ""))
             {
                 Ser a = new Ser();
-                Get request = new Get("http://watchlist-server.herokuapp.com/user?name=" + Name.Text + "&password=" + Pass.Text);
+                Get request = new Get("http://watchlist-app-server.herokuapp.com/user?name=" + Name.Text + "&password=" + pass);              
                 User currentUser = a.Serialization_User(request.GetInfo());
                 if (currentUser!= null)
-                {
-                    MessageBox.Show("Welcome, " + currentUser.name);
+                {                
                     WindowsList Singleton = WindowsList.GetInstance();
                     this.NavigationService.Navigate(Singleton.page1);
 

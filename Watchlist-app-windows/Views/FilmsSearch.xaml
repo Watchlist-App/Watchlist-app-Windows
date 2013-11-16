@@ -51,7 +51,7 @@
             </TextBox.Effect>
         </TextBox>
 
-        <DataGrid x:Name="dataGrid1" SelectedItem="{Binding Path=SelectedMovie, Mode=TwoWay}" HorizontalAlignment="Left" Margin="54,125,0,0" VerticalAlignment="Top" Height="374" Width="556" Grid.RowSpan="4" GridLinesVisibility="None" SelectionChanged="dataGrid1_SelectionChanged" BorderThickness="0" >
+        <DataGrid x:Name="dataGrid1" SelectedItem="{Binding Path=SelectedMovie, Mode=TwoWay}" ScrollViewer.VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Left" Margin="54,125,0,0" VerticalAlignment="Top" Height="374" Width="556" Grid.RowSpan="4" GridLinesVisibility="None" SelectionChanged="dataGrid1_SelectionChanged" BorderThickness="0" >
             <DataGrid.Columns>
                 <DataGridTemplateColumn >
                     <DataGridTemplateColumn.CellTemplate>
@@ -71,7 +71,6 @@
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <TextBlock x:Name="TextBlock1" HorizontalAlignment="Left" Margin="690,414,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="235" Grid.RowSpan="4" Width="274" FontSize="14"/>
         <TextBlock  x:Name="TextBlock2" HorizontalAlignment="Left" Margin="690,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="61" Width="265" FontSize="22">
             <TextBlock.Effect>
                 <DropShadowEffect/>
@@ -112,7 +111,13 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <TextBlock x:Name="Title" HorizontalAlignment="Left" Margin="65,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="31" Width="545" FontSize="16"/>
+        <TextBlock x:Name="Title" HorizontalAlignment="Left" Margin="263,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="31" Width="347" FontStyle="Italic"/>
+        <TextBox x:Name="TextBlock1" IsReadOnly="True" Background ="Transparent"  HorizontalAlignment="Left" Height="199" Margin="690,420,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="274" Grid.RowSpan="4" Visibility="Visible" FontSize="14">
+
+        </TextBox>
+        <Border x:Name="SearchTextBorder" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="30" Margin="263,89,0,0" VerticalAlignment="Top" Width="0" RenderTransformOrigin="0.5,0.5">
+            
+        </Border>
 
     </Grid>
 </Page>
