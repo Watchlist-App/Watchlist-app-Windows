@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Watchlist_app_windows.DataFetchers;
-using Watchlist_app_windows.DataFetchers;
 using System.Threading;
 using Watchlist_app_windows.ViewControllers;
 using System.Windows.Markup;

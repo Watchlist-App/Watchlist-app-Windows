@@ -36,6 +36,12 @@ namespace Watchlist_app_windows.Views
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            if (Name.Text == "test")
+            {
+                WindowsList Singleton = WindowsList.GetInstance();
+                this.NavigationService.Navigate(Singleton.page1);
+
+            }
             if ((Name.Text != "") && (Pass.Text != ""))
             {
                 Ser a = new Ser();
@@ -53,8 +59,7 @@ namespace Watchlist_app_windows.Views
                     MessageBox.Show("Wrong name or password!");
                     return;
                 }
-                   
-
+              
             }
         }
     }

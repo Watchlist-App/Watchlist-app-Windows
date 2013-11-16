@@ -33,9 +33,10 @@ namespace Watchlist_app_windows.Views
         }
         private void GoToMain(object sender, RoutedEventArgs e)
         {
-            //MyBrowser.Source = new Uri("http://www.google.by/");
+            MyBrowser.Source = new Uri("about:blank");
+            MyBrowser.Refresh();
             MyBrowser.VerifyAccess();
-            //Thread.Sleep(500);         
+            Thread.Sleep(500);            
             WindowsList Singleton = WindowsList.GetInstance(); 
             this.NavigationService.GoBack();  
         }

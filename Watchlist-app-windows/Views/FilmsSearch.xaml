@@ -45,7 +45,7 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="23" Margin="54,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106">
+        <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="23" Margin="54,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106" KeyUp="SearchByTitle">
             <TextBox.Effect>
                 <DropShadowEffect/>
             </TextBox.Effect>
