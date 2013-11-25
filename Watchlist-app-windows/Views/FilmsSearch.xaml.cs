@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Forms;
 using System.IO;
 using System.Data;
 using System.Runtime.Serialization.Json;
@@ -36,8 +37,8 @@ namespace Watchlist_app_windows
         Movie currentMovie = new Movie();
         public Watchlist()
         {
-            Data.EventHandler = new Data.MyEvent(toDataGrid);       //это привязка делегата к методу (теперь Data ссылается на метод toDataGrid())
-            MetaData.EventHandler = new MetaData.MyEvent(toViewBox);     
+            Data.EventHandler = new Data.MyEvent(toDataGrid);      
+            MetaData.EventHandler = new MetaData.MyEvent(toViewBox);
             InitializeComponent();
         }
 
@@ -186,7 +187,7 @@ namespace Watchlist_app_windows
             Thread searchThread = new Thread(new ThreadStart(tc.func));
             searchThread.Start();
         }
-        private void toFandangoFetcher(object sender, RoutedEventArgs e) // здесь должен быть переход к заказу билетов
+        private void toFandangoFetcher(object sender, RoutedEventArgs e)
         {           
             ToFandango.EventHandler(currentMovie);
             WindowsList Singleton = WindowsList.GetInstance();
@@ -198,7 +199,20 @@ namespace Watchlist_app_windows
             WindowsList Singleton = WindowsList.GetInstance();
             this.NavigationService.Navigate(Singleton.page7);
         }
-
+        private void SearchByTitle(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            Status.Text = "Searching";
+            string temp = searchBox.Text;
+            Title.Text = "Searching: " + searchBox.Text;
+            if (temp != "")
+            {
+                Get request = new Get("http://api.themoviedb.org/3/search/movie?query=" + temp + "&api_key=86afaae5fbe574d49418485ca1e58803");
+                ThreadClass tc = new ThreadClass(request);
+                Thread searchThread = new Thread(new ThreadStart(tc.func));
+                searchThread.Start();
+                SearchTextBorder.Width += 10;  //temporary
+            }            
+        }        
 
     }
 }

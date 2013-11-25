@@ -32,10 +32,10 @@ namespace Watchlist_app_windows
         public Window1()
         {
             InitializeComponent();
+            this.WindowHeight = 800;
+            this.WindowWidth = 1024;
             WatchListData.EventHandler = new WatchListData.MyEvent(toWatchlist);
         }
-
-//================ обработчики нажатия конпок:
         private void ViewProfile(object sender, RoutedEventArgs e)
         {
             WindowsList Singleton = WindowsList.GetInstance();

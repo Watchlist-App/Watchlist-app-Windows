@@ -13,7 +13,7 @@
 
 
     <Grid RenderTransformOrigin="0.502,0.989">
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="771*"/>
             <RowDefinition Height="29*"/>
@@ -69,7 +69,7 @@
         </TextBlock>
         <TextBlock  x:Name="TextBlock3" HorizontalAlignment="Left" Margin="732,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="113" FontSize="22">
         </TextBlock>
-        <TextBlock  x:Name="TextBlock1" HorizontalAlignment="Left" Margin="228,351,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="117" Width="642" FontSize="14"/>
+        <TextBox  x:Name="TextBlock1" IsReadOnly="True" Background ="Transparent" HorizontalAlignment="Left" Margin="203,351,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="117" Width="685" FontSize="14"/>
         <Button  Content="&lt;&lt;" HorizontalAlignment="Left" Margin="203,494,0,0" VerticalAlignment="Top" Width="75" Click="go_back">
             <Button.Effect>
                 <DropShadowEffect/>
@@ -92,7 +92,7 @@
         </Button>
         <Label Content="Current Watchlist" HorizontalAlignment="Left" Margin="203,46,0,0" VerticalAlignment="Top" Width="235" FontSize="18"/>
 
-        <DataGrid x:Name="dataGrid1" HorizontalAlignment="Left" Margin="893,80,0,0" VerticalAlignment="Top" Height="388" Width="86" GridLinesVisibility="None" SelectionChanged="dataGrid1_SelectionChanged" >
+        <DataGrid x:Name="dataGrid1" ScrollViewer.VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Left" Margin="893,80,0,0" VerticalAlignment="Top" Height="388" Width="86" GridLinesVisibility="None" SelectionChanged="dataGrid1_SelectionChanged" >
             <DataGrid.Effect>
                 <DropShadowEffect/>
             </DataGrid.Effect>
@@ -103,7 +103,7 @@
         <TextBlock x:Name="revenue" HorizontalAlignment="Left" Margin="400,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Width="227"/>
         <TextBlock x:Name="runtime" HorizontalAlignment="Left" Margin="400,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Width="227"/>
         <TextBlock x:Name="rating" HorizontalAlignment="Left" Margin="400,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Width="227"/>
-        
+
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="388" Margin="203,80,0,0" VerticalAlignment="Top" Width="685">
             <Border.Effect>
                 <DropShadowEffect/>
